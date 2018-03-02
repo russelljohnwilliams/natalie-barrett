@@ -911,7 +911,11 @@ object {
 ## sections  -  natalie
 --------------------------------------------------------------*/
 
-#natalie .section-content, #natalie .quote-block{
+.hidden-posts-to-clone{
+	/*display: none;*/
+}
+
+#natalie .section-content, #natalie .quote-content{
 	width: 40vw;
 	margin: auto;
 	color: white;
@@ -940,14 +944,14 @@ object {
 ## quote-block
 --------------------------------------------------------------*/
 
-#natalie .quote-block{
+#natalie .quote-content{
 	border: solid white 1px;
 	margin-top: 50vh;
 	padding: 20px;
 	text-align: center;
 }
 
-.quote-block::first-line{
+.quote-content::first-line{
 	font-style: italic;
 }
 
