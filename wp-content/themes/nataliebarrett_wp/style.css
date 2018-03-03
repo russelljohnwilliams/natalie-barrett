@@ -599,11 +599,11 @@ a:hover, a:active {
 }
 
 .main-navigation li {
-	font-size: small;
+	font-size: medium;
 }
 
 .main-navigation li:nth-child(3){
-	font-size: x-large;
+	font-size: xx-large;
 	margin-top: -5px;
 	width: 60vw;
 	text-align: center;
@@ -628,6 +628,7 @@ a:hover, a:active {
 
 #site-navigation a{
 	color: white;
+	font-family: 'Permanent Marker', cursive;
 }
 
 /*--------------------------------------------------------------
@@ -911,9 +912,7 @@ object {
 ## sections  -  natalie
 --------------------------------------------------------------*/
 
-.hidden-posts-to-clone{
-	/*display: none;*/
-}
+
 
 #natalie .section-content, #natalie .quote-content{
 	width: 40vw;
@@ -933,6 +932,16 @@ object {
 ## sections  -  work
 --------------------------------------------------------------*/
 
+.hidden-posts-to-clone{
+	display: none;
+}
+
+.cloned_content{
+	width: 75vw;
+	margin: auto;
+	border: 1px solid white;
+	background: red;
+}
 
 /*--------------------------------------------------------------
 ## sections  -  about
@@ -945,10 +954,12 @@ object {
 --------------------------------------------------------------*/
 
 #natalie .quote-content{
-	border: solid white 1px;
+	/*border: solid white 1px;*/
 	margin-top: 50vh;
 	padding: 20px;
+	font-family: 'Old Standard TT', serif;
 	text-align: center;
+	font-size: x-large;
 }
 
 .quote-content::first-line{

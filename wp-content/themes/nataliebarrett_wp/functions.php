@@ -117,6 +117,13 @@ add_action( 'widgets_init', 'nataliebarrett_wp_widgets_init' );
  * Enqueue scripts and styles.
  */
 function nataliebarrett_wp_scripts() {
+
+	wp_enqueue_script(
+	    'jquery_script', // name your script so that you can attach other scripts and de-register, etc.
+	    get_template_directory_uri() . '/js/jquery-script.js', // this is the location of your script file
+	    array('jquery') // this array lists the scripts upon which your script depends
+	);
+
 	wp_enqueue_style( 'nataliebarrett_wp-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'nataliebarrett_wp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
