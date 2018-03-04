@@ -1,11 +1,12 @@
 jQuery( document ).ready(function() {
   cloneContent()
   removeHrefFromMenu()
-  
-  jQuery(window).scroll( function(){
-    fadeInContent('.category-video')
-  })
+  fadeInContentOnScroll('.cloned-content .post')
+  fadeInContent('.section-content')
+  setTimeout(function(){
   fadeInContent('.quote-content')
+
+  }, 500)
 })
 
 function cloneContent(){
@@ -24,26 +25,18 @@ jQuery(function() {
  });
 });
 
-function fadeInContent(content){
-
-  /* Every time the window is scrolled ... */
-  console.log('content?', content)
-  /* Check the location of each desired element */
-  jQuery(content).each( function(i){
-
-    var bottom_of_object = jQuery(this).offset().top + jQuery(this).outerHeight();
-    var bottom_of_window = jQuery(window).scrollTop() + jQuery(window).height();
-
-    /* If the object is completely visible in the window, fade it it */
-    if( bottom_of_window > bottom_of_object ){
-
-      jQuery(this).animate({'opacity':'1'},2000);
-    }
+function fadeInContentOnScroll(content){
+  jQuery(window).scroll( function(){
+    jQuery(content).each( function(i){
+      var bottom_of_object = jQuery(this).offset().top + jQuery(this).outerHeight();
+      var bottom_of_window = jQuery(window).scrollTop() + jQuery(window).height();
+      if( bottom_of_window > bottom_of_object ){
+        fadeInContent(this)
+      }
+    })
   })
-
 }
 
-
-jQuery(function(){
- 
-})
+function fadeInContent(content){
+  jQuery(content).animate({'opacity':'1'},1500);
+}

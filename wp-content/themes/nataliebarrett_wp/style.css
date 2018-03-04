@@ -951,7 +951,6 @@ object {
 
 .category-video{
 	float: right;
-	opacity:0;
 }
 
 .category-audio{
@@ -967,6 +966,12 @@ object {
 	min-height: 80vh;
 	margin: auto;
 	border: 1px solid white;
+}
+
+.section-content,  
+.cloned-content .post{
+	opacity:0;
+
 }
 
 
