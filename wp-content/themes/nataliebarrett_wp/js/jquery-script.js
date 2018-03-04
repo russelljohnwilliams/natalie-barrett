@@ -5,7 +5,7 @@ jQuery( document ).ready(function() {
 })
 
 function cloneContent(){
-  jQuery(".content-to-clone").clone().removeAttr('class').attr('class', "cloned-content content-to-clone").appendTo('#work')
+  jQuery(".content-to-clone").clone().removeAttr('class').attr('class', "cloned-content content-to-clone").appendTo('#work .section-content-wrapper')
 }
 
 function removeHrefFromMenu(){

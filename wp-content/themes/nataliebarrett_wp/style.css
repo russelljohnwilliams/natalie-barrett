@@ -278,6 +278,7 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
+	margin: 0;
 }
 
 p {
@@ -756,11 +757,11 @@ a:hover, a:active {
 	display: none;
 }
 
-.page-content,
+/*.page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
-}
+	margin: 0;
+}*/
 
 .page-links {
 	clear: both;
@@ -944,6 +945,8 @@ object {
 .cloned-content .post{
 	border: 1px solid white;
 	padding: 10px;
+	width: 40%;
+	color: white;
 }
 
 .category-video{
@@ -952,6 +955,17 @@ object {
 
 .category-audio{
 	float: left;
+}
+
+.page-section{
+	padding-top: 10vh;
+}
+
+.section-content-wrapper{
+	width: 90vw;
+	min-height: 80vh;
+	margin: auto;
+	border: 1px solid white;
 }
 
 
@@ -967,7 +981,7 @@ object {
 
 #natalie .quote-content{
 	/*border: solid white 1px;*/
-	margin-top: 50vh;
+	margin-top: 35vh;
 	padding: 20px;
 	font-family: 'Old Standard TT', serif;
 	text-align: center;

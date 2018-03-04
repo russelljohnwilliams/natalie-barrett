@@ -63,6 +63,7 @@ get_header(); ?>
 			<?php the_title(); ?>
 			
 			>
+			<div class="section-content-wrapper">
 			<div class="section-title">
 				<p><?php the_title(); ?></p>
 			</div>
@@ -72,6 +73,7 @@ get_header(); ?>
 			<div class="quote-content">
 				<?php the_field('quote-content'); ?>
 			</div>
+		</div>
 		</div>
 
 	<?php endwhile; endif; ?>

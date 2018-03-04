@@ -13,18 +13,13 @@
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
+			the_title( '<h3 class="entry-title">', '</h3>' );
 		else :
-			the_title( '<div class="entry-title"><a class="anchor-point" ' . get_permalink()  . '" rel="bookmark">', '</a></div>' );
+			the_title( '<h3 class="entry-title"> ', '</h3>' );
 		endif;
 
 		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php
-				nataliebarrett_wp_posted_on();
-				nataliebarrett_wp_posted_by();
-			?>
-		</div><!-- .entry-meta -->
+		
 		<?php
 		endif; ?>
 	</header><!-- .entry-header -->
@@ -54,6 +49,5 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php nataliebarrett_wp_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
