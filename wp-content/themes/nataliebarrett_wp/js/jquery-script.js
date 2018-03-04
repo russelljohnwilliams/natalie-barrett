@@ -1,51 +1,27 @@
 jQuery( document ).ready(function() {
-  console.log("jQuery works")
-
-cloneContent()
-removeHrefFromMenu()
+  cloneContent()
+  removeHrefFromMenu()
+  fadeInContent()
 })
 
 function cloneContent(){
-  jQuery(".hidden-posts-to-clone").clone().removeAttr('class').attr('class', ".cloned_content").appendTo('#work')
+  jQuery(".content-to-clone").clone().removeAttr('class').attr('class', "cloned-content content-to-clone").appendTo('#work')
 }
 
 function removeHrefFromMenu(){
   jQuery('.menu-item').find("a[href='#']").removeAttr("href").css("cursor","pointer");
 }
 
+function fadeInContent(){
+  jQuery('.cloned-content')
+}
+
 jQuery(function() {
-  jQuery('.menu-item').bind('click',function(event){
-  console.log("menu-item", this.innerText)
-   
+  jQuery('.menu-item').bind('click',function(event){   
    var hashAnchor = "#" + this.innerText
-   console.log("hashAnchor", hashAnchor)
-
-  var targetAnchor = jQuery(hashAnchor).offset().top
-  jQuery('html, body').animate({scrollTop: targetAnchor}, 1000);
-
-  // jQuery(".quote-content").slideUp(targetAnchor);
-
-
-
-  });
+   var targetAnchor = jQuery(hashAnchor).offset().top
+   jQuery('html, body').animate({scrollTop: targetAnchor}, 1000);
+ });
 });
 
 
-
-
-
-// jQuery(function() {
-//   jQuery('.site-navigation'  a).bind('click',function(event){
-//     var viewportPosition = jQuery('#viewport').offset().left;
-//     var anchor = jQuery(this).find('.anchor-point')[0].innerText.toLowerCase()
-//     var hashAnchor = "#" + anchor
-//     var targetAnchor = jQuery(hashAnchor).offset().left
-//     var targetAnchorSum = targetAnchor - viewportPosition 
-//     var destination = targetAnchorSum + currentPosition
-//     jQuery('#viewport').stop().animate({
-//       scrollTop: (destination)
-//     }, 1000);
-//     currentPosition = destination
-//     event.preventDefault();
-//   });
-// });

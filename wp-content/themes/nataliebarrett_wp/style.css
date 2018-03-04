@@ -932,16 +932,28 @@ object {
 ## sections  -  work
 --------------------------------------------------------------*/
 
-.hidden-posts-to-clone{
+.hidden{
 	display: none;
 }
 
-.cloned_content{
+.cloned-content{
 	width: 75vw;
-	margin: auto;
-	border: 1px solid white;
-	background: red;
+	margin: 10px auto;
 }
+
+.cloned-content .post{
+	border: 1px solid white;
+	padding: 10px;
+}
+
+.category-video{
+	float: right;
+}
+
+.category-audio{
+	float: left;
+}
+
 
 /*--------------------------------------------------------------
 ## sections  -  about
@@ -976,5 +988,6 @@ object {
 	height: 100vh;
 	background-color: #404146;
 }
+
 
 
