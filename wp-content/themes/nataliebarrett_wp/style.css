@@ -36,16 +36,23 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Content
 	## Posts and pages
 	## Comments
+	## Quotes
 # Infinite scroll
 # Media
 	## Captions
 	## Galleries
+# sections
+	## sections  -  natalie (home)
+	## sections  -  work
+	## sections  -  about
+# footer
+
 	--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
 html {
-	font-family: sans-serif;
+	font-family: 'Quicksand', sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 }
@@ -270,7 +277,7 @@ select,
 optgroup,
 textarea {
 	color: #404040;
-	font-family: sans-serif;
+	font-family: 'Quicksand', sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
 	line-height: 1.5;
@@ -629,7 +636,8 @@ a:hover, a:active {
 
 #site-navigation a{
 	color: white;
-	font-family: 'Permanent Marker', cursive;
+	font-family: 'Reenie Beanie', cursive;
+	font-size: xx-large;
 }
 
 /*--------------------------------------------------------------
@@ -780,6 +788,24 @@ a:hover, a:active {
 }
 
 /*--------------------------------------------------------------
+# quote-block
+--------------------------------------------------------------*/
+
+#natalie .quote-content{
+	/*border: solid white 1px;*/
+	margin-top: 35vh;
+	padding: 20px;
+	font-family: 'Old Standard TT', serif;
+	text-align: center;
+	font-size: x-large;
+	opacity:0;
+}
+
+.quote-content::first-line{
+	font-style: italic;
+}
+
+/*--------------------------------------------------------------
 # Infinite scroll
 --------------------------------------------------------------*/
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
@@ -890,48 +916,39 @@ object {
 	display: block;
 }
 
-
-
 /*--------------------------------------------------------------
-## sections
+# sections
 --------------------------------------------------------------*/
-
 
 .page-section{
 	min-height: 100vh;
 }
 
-#about{
-	background: #ef5285;
-}
-
-#work{
-	background: #60c5ba;
-}
-
 /*--------------------------------------------------------------
-## sections  -  natalie
+## sections  -  natalie (home)
 --------------------------------------------------------------*/
-
-
 
 #natalie .section-content, #natalie .quote-content{
 	width: 40vw;
 	margin: auto;
 	color: white;
-	text-align: justify;
 	padding-top: 20vh;
+}
+
+#natalie .section-content{
+	text-align: justify;
 }
 
 #natalie .section-title {
 	display: none;
 }
 
-
-
 /*--------------------------------------------------------------
 ## sections  -  work
 --------------------------------------------------------------*/
+#work{
+	background: #60c5ba;
+}
 
 .hidden{
 	display: none;
@@ -939,18 +956,19 @@ object {
 
 .cloned-content{
 	width: 75vw;
-	margin: 10px auto;
+	margin: auto;
+	overflow: auto;
 }
 
 .cloned-content .post{
-	border: 1px solid white;
 	padding: 10px;
-	width: 40%;
+	width: 47%;
 	color: white;
 }
 
 .category-video{
 	float: right;
+	clear: both;
 }
 
 .category-audio{
@@ -966,12 +984,16 @@ object {
 	min-height: 80vh;
 	margin: auto;
 	border: 1px solid white;
+	overflow: auto;
 }
 
 .section-content,  
 .cloned-content .post{
 	opacity:0;
+}
 
+#player{
+	background: black;
 }
 
 
@@ -979,31 +1001,13 @@ object {
 ## sections  -  about
 --------------------------------------------------------------*/
 
-
-
-/*--------------------------------------------------------------
-## quote-block
---------------------------------------------------------------*/
-
-#natalie .quote-content{
-	/*border: solid white 1px;*/
-	margin-top: 35vh;
-	padding: 20px;
-	font-family: 'Old Standard TT', serif;
-	text-align: center;
-	font-size: x-large;
-	opacity:0;
+#about{
+	background: #ef5285;
 }
 
-.quote-content::first-line{
-	font-style: italic;
-}
-
-
 /*--------------------------------------------------------------
-## footer
+# footer
 --------------------------------------------------------------*/
-
 
 .site-footer{
 	height: 100vh;

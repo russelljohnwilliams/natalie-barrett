@@ -5,8 +5,12 @@ jQuery( document ).ready(function() {
   fadeInContent('.section-content')
   setTimeout(function(){
   fadeInContent('.quote-content')
-
   }, 500)
+
+  jQuery(document).ready(function(){
+      jQuery(this).scrollTop(0);
+  });
+
 })
 
 function cloneContent(){
