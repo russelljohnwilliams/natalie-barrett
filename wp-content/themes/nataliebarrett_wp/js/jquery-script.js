@@ -1,7 +1,11 @@
 jQuery( document ).ready(function() {
   cloneContent()
   removeHrefFromMenu()
-  fadeInContent()
+  
+  jQuery(window).scroll( function(){
+    fadeInContent('.category-video')
+  })
+  fadeInContent('.quote-content')
 })
 
 function cloneContent(){
@@ -12,10 +16,6 @@ function removeHrefFromMenu(){
   jQuery('.menu-item').find("a[href='#']").removeAttr("href").css("cursor","pointer");
 }
 
-function fadeInContent(){
-  jQuery('.cloned-content')
-}
-
 jQuery(function() {
   jQuery('.menu-item').bind('click',function(event){   
    var hashAnchor = "#" + this.innerText
@@ -24,4 +24,26 @@ jQuery(function() {
  });
 });
 
+function fadeInContent(content){
 
+  /* Every time the window is scrolled ... */
+  console.log('content?', content)
+  /* Check the location of each desired element */
+  jQuery(content).each( function(i){
+
+    var bottom_of_object = jQuery(this).offset().top + jQuery(this).outerHeight();
+    var bottom_of_window = jQuery(window).scrollTop() + jQuery(window).height();
+
+    /* If the object is completely visible in the window, fade it it */
+    if( bottom_of_window > bottom_of_object ){
+
+      jQuery(this).animate({'opacity':'1'},2000);
+    }
+  })
+
+}
+
+
+jQuery(function(){
+ 
+})

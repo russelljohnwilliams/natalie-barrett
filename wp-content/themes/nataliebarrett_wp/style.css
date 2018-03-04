@@ -951,6 +951,7 @@ object {
 
 .category-video{
 	float: right;
+	opacity:0;
 }
 
 .category-audio{
@@ -986,6 +987,7 @@ object {
 	font-family: 'Old Standard TT', serif;
 	text-align: center;
 	font-size: x-large;
+	opacity:0;
 }
 
 .quote-content::first-line{
