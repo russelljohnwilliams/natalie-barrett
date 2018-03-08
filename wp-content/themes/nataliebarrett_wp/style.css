@@ -608,38 +608,43 @@ a:hover, a:active {
 
 .main-navigation li {
 	font-size: medium;
+	float: left;
+	padding: 5px 10px;
 }
 
-.main-navigation li:nth-child(3){
-	font-size: xx-large;
-	margin-top: -5px;
-	width: 60vw;
-	text-align: center;
+.main-navigation li:nth-child(n + 3){
+	/*	font-size: xx-large;
+		margin-top: -5px;
+		width: 60vw;
+		text-align: center;*/
+		font-size: medium;
+		float: right;
 }
 
 #primary-menu{
-	display: flex;
+/*	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
-	justify-content: space-between;
-	padding: 5px 0 0 0;
-	width: 90vw;
-	margin: auto;
+	justify-content: space-between;*/
+	padding: 0 5vw;
+	background-color: rgba(10,10,10,0.2);
+	overflow: auto;
 }
 
 #site-navigation{
 	position: fixed;
 	/*opacity: 0.5;*/
-	background-color: rgba(10,10,10,0.2);
+	height: 100px;
 	/*background-color: #feee7d;*/
 	/*box-shadow: 0 0.3px 20px black;*/
 	color: white;
+	z-index: 50;
 }
 
 #site-navigation a{
 	color: white;
-	font-family: 'Reenie Beanie', cursive;
-	font-size: xx-large;
+	font-family: 'Quicksand', sans-serif;
+	font-size: large;
 }
 
 /*--------------------------------------------------------------
@@ -793,14 +798,16 @@ a:hover, a:active {
 # quote-block
 --------------------------------------------------------------*/
 
-#natalie .quote-content{
+.quote-content{
 	/*border: solid white 1px;*/
-	margin-top: 35vh;
-	padding: 20px;
+	
 	font-family: 'Oxygen', sans-serif;
 	text-align: center;
-	font-size: x-large;
-	opacity:0;
+	font-size: large;
+	opacity: 0;
+	top: 75px;
+	position: relative;
+	color: white;
 }
 
 .quote-content::first-line{
@@ -924,6 +931,29 @@ object {
 
 .page-section{
 	min-height: 100vh;
+	padding: 10vh 0;
+}
+
+.section-title {
+	/*display: none;*/
+	color: white;
+	font-size: 70px;
+	font-family: 'Reenie Beanie', cursive;
+}
+
+.section-content{
+	color: white;
+	position: relative;
+}
+
+.section-content-wrapper{
+	width: 90vw;
+	min-height: 80vh;
+	margin: auto;
+	border: 1px solid white;
+	overflow: hidden;
+	clear:both;
+	padding: 20px 40px 40px;
 }
 
 /*--------------------------------------------------------------
@@ -933,29 +963,30 @@ object {
 #natalie .section-content, #natalie .quote-content{
 	width: 40vw;
 	margin: auto;
-	color: white;
-}
-
-#natalie .quote-content{
-	padding: 0;
-	position: relative;
-	padding-top: 30vh;
 }
 
 #natalie .section-content{
 	text-align: justify;
-	padding: 18vh 0 0 0;
 }
 
-#natalie .section-title {
-	display: none;
+#natalie .quote-content{
+	padding-top: 30vh;
+}
+
+#natalie .section-title{
+	transform: rotate(-5deg);
+	padding: 10px 100px;
+	font-size: 100px;
+	position: relative;
 }
 
 /*--------------------------------------------------------------
 ## sections  -  work
 --------------------------------------------------------------*/
 #work{
-	background: #60c5ba;
+	background: #BE93C5;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #7BC6CC, #BE93C5);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #7BC6CC, #BE93C5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .hidden{
@@ -965,7 +996,7 @@ object {
 .cloned-content{
 	width: 75vw;
 	margin: auto;
-	overflow: auto;
+	overflow: hidden;
 }
 
 .cloned-content .post{
@@ -987,21 +1018,18 @@ object {
 	float: left;
 }
 
-.page-section{
-	padding-top: 10vh;
-}
-
-.section-content-wrapper{
-	width: 90vw;
-	min-height: 80vh;
-	margin: auto;
-	border: 1px solid white;
-	overflow: auto;
+.category-audio,.category-video{
+	position: relative;
+	top: 50px;
 }
 
 .section-content,  
 .cloned-content .post{
 	opacity:0;
+}
+
+#work, #work .section-content-wrapper{
+	position: relative;
 }
 
 
@@ -1010,7 +1038,25 @@ object {
 --------------------------------------------------------------*/
 
 #about{
-	background: #ef5285;
+	background: #ffd89b;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #19547b, #ffd89b);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #19547b, #ffd89b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+#about .section-content{
+	width: 46vw;
+	margin-left: 3vw;
+	text-align: justify;
+	float: left;
+}
+
+#about .quote-content{
+	width: 30vw;
+	margin: auto;
+	padding: 5vh 0 10vh;
+	float: right;
 }
 
 /*--------------------------------------------------------------
@@ -1019,7 +1065,10 @@ object {
 
 .site-footer{
 	height: 100vh;
-	background-color: #404146;
+	background: #000000;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 
