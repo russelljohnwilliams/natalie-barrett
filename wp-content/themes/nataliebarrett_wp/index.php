@@ -62,13 +62,19 @@ get_header(); ?>
 			
 			<?php the_title(); ?>
 			
-			>
+			><?php 
+if ( has_post_thumbnail() ) {
+the_post_thumbnail();
+}  ?>
+
 			<div class="section-content-wrapper">
+
 			<div class="section-title">
 				<p><?php the_title(); ?></p>
 			</div>
 			<div class="section-content">
 				<?php the_content(); ?>
+
 			</div>
 			<div class="quote-content">
 				<?php the_field('quote-content'); ?>

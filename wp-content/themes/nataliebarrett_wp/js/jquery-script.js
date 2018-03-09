@@ -10,7 +10,8 @@ jQuery( document ).ready(function() {
   // background_image_parallax(jQuery("#work"), 1);
   fadeInContentOnScroll('.cloned-content .post ')
   fadeInContentOnScroll('#about .quote-content')
-
+  changeBackgroundOnScroll('#work', "#7BC6CC")
+  changeBackgroundOnScroll('#about', "#BE93C5")
   fadeInContent('.section-content')
   setTimeout(function(){
     fadeInContent('#natalie .quote-content', 'padding-top')
@@ -30,13 +31,23 @@ jQuery(window).on('scroll', function() {
   lastScrollTop = st;
 });
 
+// jQuery(function(){
+//   jQuery(window).scroll( function(){
+//       console.log("scrollTop", jQuery('#about .quote-content').offset().top)
+
+//     if(jQuery('#id').scrollTop() == 0){
+//       // jQuery('#id').css({'background': 'blue'})
+//       // console.log("colour change YEAH!")
+//     }
+//   })
+// })
+
 
 jQuery(function(){
   jQuery('#site-navigation').mouseover(function(){
     jQuery('#primary-menu').fadeIn()
   })
 })
-
 
 function cloneContent(){
   jQuery(".content-to-clone").clone().removeAttr('class').attr('class', "cloned-content content-to-clone").appendTo('#work .section-content-wrapper');
@@ -65,6 +76,21 @@ function fadeInContentOnScroll(content){
       if( bottom_of_window > bottom_of_object ){
         fadeInContent(this)
 
+      }
+    })
+  })
+}
+
+function changeBackgroundOnScroll(content, colour){
+  jQuery(window).scroll( function(){
+    jQuery(content).each( function(i){
+      var siteContent = jQuery('.site-content')
+      var bottom_of_object = jQuery(this).offset().top - 20;
+      var bottom_of_window = jQuery(window).scrollTop();
+      if( bottom_of_window > bottom_of_object ){
+        // fadeInContent(this)
+        siteContent.css({ "background": colour })
+        console.log('colour', siteContent.css("background")) 
       }
     })
   })
