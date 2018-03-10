@@ -85,12 +85,13 @@ function changeBackgroundOnScroll(content, colour){
   jQuery(window).scroll( function(){
     jQuery(content).each( function(i){
       var siteContent = jQuery('.site-content')
-      var bottom_of_object = jQuery(this).offset().top - 20;
-      var bottom_of_window = jQuery(window).scrollTop();
-      if( bottom_of_window > bottom_of_object ){
+      var top_of_object = jQuery(this).offset().top;
+      var top_of_window = jQuery(window).scrollTop();
+      if( top_of_window > (top_of_object - 100) ){
         // fadeInContent(this)
         siteContent.css({ "background": colour })
-        console.log('colour', siteContent.css("background")) 
+      }else{
+        siteContent.css({ "background": "transparent" })
       }
     })
   })

@@ -956,7 +956,7 @@ object {
 
 .section-content-wrapper{
 	width: 90vw;
-	min-height: 80vh;
+	min-height: 90vh;
 	margin: auto;
 	border: 1px solid white;
 	overflow: hidden;
@@ -1006,7 +1006,7 @@ object {
 }
 
 .site-content{
-	
+
 	   /* Firefox */
 	   -moz-transition: all 1s ease-in;
 	   /* WebKit */
