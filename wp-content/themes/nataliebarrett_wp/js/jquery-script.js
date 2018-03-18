@@ -5,16 +5,19 @@ jQuery( document ).ready(function() {
   jQuery(this).scrollTop(0);
   removeHrefFromMenu()
   background_image_parallax(jQuery("#natalie .quote-content"), 2);
-  // background_image_parallax(jQuery('#about .quote-content'), 2);
+  background_image_parallax(jQuery("#natalie img"), -2);
+  // background_image_parallax(jQuery('#about .quote-content'), 2, jQuery('#about'));
   // background_image_parallax(jQuery("#natalie .section-title"), -5);
-  // background_image_parallax(jQuery("#work"), 1);
-  fadeInContentOnScroll('.cloned-content .post ')
-  fadeInContentOnScroll('#about .quote-content')
-  changeBackgroundOnScroll('#work', "#7BC6CC")
-  changeBackgroundOnScroll('#about', "#BE93C5")
-  fadeInContent('.section-content')
+  // background_image_parallax(jQuery("#work"), 3);
+  // background_image_parallax(jQuery("#about"), 1 );
+  // background_image_parallax(jQuery(".site-footer"), 2 );
+  fadeInContentOnScroll('.cloned-content .post ', '0')
+  fadeInContentOnScroll('#about .quote-content', '650px')
+  // changeBackgroundOnScroll('#work', "#7BC6CC")
+  // changeBackgroundOnScroll('#about', "#BE93C5")
+  fadeInContent('.section-content', '0')
   setTimeout(function(){
-    fadeInContent('#natalie .quote-content', 'padding-top')
+    fadeInContent('#natalie .quote-content', '250px')
   }, 500)
 })
 
@@ -30,18 +33,6 @@ jQuery(window).on('scroll', function() {
   }
   lastScrollTop = st;
 });
-
-// jQuery(function(){
-//   jQuery(window).scroll( function(){
-//       console.log("scrollTop", jQuery('#about .quote-content').offset().top)
-
-//     if(jQuery('#id').scrollTop() == 0){
-//       // jQuery('#id').css({'background': 'blue'})
-//       // console.log("colour change YEAH!")
-//     }
-//   })
-// })
-
 
 jQuery(function(){
   jQuery('#site-navigation').mouseover(function(){
@@ -63,7 +54,8 @@ jQuery(function() {
     var splitText = this.innerText.split(' ');
     var hashAnchor = "#" + splitText
     var targetAnchor = jQuery(hashAnchor).offset().top
-    jQuery('html, body').animate({scrollTop: targetAnchor }, 1000);
+    console.log("goooooo", targetAnchor)
+    jQuery('html, body').animate({scrollTop: (targetAnchor) }, 1000);
   });
 });
 
@@ -81,42 +73,52 @@ function fadeInContentOnScroll(content){
   })
 }
 
-function changeBackgroundOnScroll(content, colour){
-  jQuery(window).scroll( function(){
-    jQuery(content).each( function(i){
-      var siteContent = jQuery('.site-content')
-      var top_of_object = jQuery(this).offset().top;
-      var top_of_window = jQuery(window).scrollTop();
-      if( top_of_window > (top_of_object - 100) ){
-        // fadeInContent(this)
-        siteContent.css({ "background": colour })
-      }else{
-        siteContent.css({ "background": "transparent" })
-      }
-    })
-  })
-}
+// function changeBackgroundOnScroll(content, colour){
+//   jQuery(window).scroll( function(){
+//     jQuery(content).each( function(i){
+//       var siteContent = jQuery('.site-content')
+//       var top_of_object = jQuery(this).offset().top;
+//       var top_of_window = jQuery(window).scrollTop();
+//       if( top_of_window > (top_of_object - 100) ){
+//         siteContent.css({ "background": colour })
+//         console.log('top_of_object', top_of_object) 
+//         console.log('top_of_window', top_of_window) 
+//       }
+//     })
+//   })
+// }
 
-function fadeInContent(content){
-  jQuery(content).animate({'opacity':'1', 'top': '0'},1500); 
+function fadeInContent(content, top){
+  jQuery(content).animate({'opacity':'1', 'padding-top': top},1500); 
 }
 
 // function direction_of_fade(object){
 //   object.css({direction : (0) });
 // }
 
-function background_image_parallax(object, speed){
+function background_image_parallax(object, speed, obj){
   jQuery(window).scroll(function(){
-    var doc = jQuery(document).scrollTop()
-    // console.log('top', object.css('top'))
-    // var doc = jQuery(object.parent()).scrollTop()
-        // console.log("content: ", jQuery(object).scrollTop())
+    // if(object.parent()  ){
+    // console.log('name', object.parent().parent())
+    // var offset = jQuery('#about')
+    // console.log('offset', obj.css('top'))
 
-    // #### needs to change document to be the top of the current section, 
-    // #### once the top of the section is above the top of the screen, paralax can begin
+  // }
+    var doc = jQuery(document).scrollTop()
+    // var doc = jQuery(object.parent()).scrollTop()
     object.css({"top" : (doc / (-speed )) });
   });
 };
+
+
+// function background_image_parallax(object, speed){
+//   jQuery(window).scroll(function(){
+//     console.log('quote', object.css('top'))
+//     var doc = jQuery(document).scrollTop()
+//     // var doc = jQuery(object.parent()).scrollTop()
+//     object.css({"top" : (doc / (-speed )) });
+//   });
+// };
 
 
 // function background_image_parallax(object, multiplier){

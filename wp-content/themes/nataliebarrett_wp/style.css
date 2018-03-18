@@ -55,6 +55,7 @@ html {
 	font-family: 'Quicksand', sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
+	background-color: grey;	
 }
 
 body {
@@ -352,7 +353,7 @@ html {
 }
 
 body {
-	background: #fff;
+	background: grey;
 	/* Fallback for when there is no custom background color defined. */
 }
 
@@ -637,7 +638,7 @@ a:hover, a:active {
 	height: 100px;
 	/*background-color: #feee7d;*/
 	/*box-shadow: 0 0.3px 20px black;*/
-	color: white;
+	/*color: white;*/
 	z-index: 50;
 }
 
@@ -805,9 +806,9 @@ a:hover, a:active {
 	text-align: center;
 	font-size: large;
 	opacity: 0;
-	top: 75px;
+
 	position: relative;
-	color: white;
+	/*color: white;*/
 }
 
 .quote-content::first-line{
@@ -931,26 +932,23 @@ object {
 
 .page-section img{
 	height: 100vh;
-	position: relative;
+	position: absolute;
 	/*padding: 10vh 0;*/
-	position: fixed;
+	/*position: fixed;*/
+	top: 0;
 /*	-webkit-clip-path: polygon(50% 0%, 100% 0, 100% 95%, 50% 100%, 0 95%, 0 0);
 	clip-path: polygon(50% 0%, 100% 0, 100% 95%, 50% 100%, 0 95%, 0 0);*/
 }
 
-.page-section{
-	padding: 5vh 0 5vh 0;
-}
-
 .section-title {
 	/*display: none;*/
-	color: white;
+	/*color: white;*/
 	font-size: 70px;
 	font-family: 'Reenie Beanie', cursive;
 }
 
 .section-content{
-	color: white;
+	/*color: white;*/
 	position: relative;
 }
 
@@ -958,16 +956,17 @@ object {
 	width: 90vw;
 	min-height: 90vh;
 	margin: auto;
-	border: 1px solid white;
+	border-top: 1px solid white;
 	overflow: hidden;
 	clear:both;
 	padding: 20px 40px 40px;
+	position: relative;
 }
 
-.section-background-image{
+/*.section-background-image{
 	height: 100vh;
 }
-
+*/
 /*--------------------------------------------------------------
 ## sections  -  natalie (home)
 --------------------------------------------------------------*/
@@ -982,7 +981,7 @@ object {
 }
 
 #natalie .quote-content{
-	padding-top: 30vh;
+	padding-top: 40vh;
 }
 
 #natalie .section-title{
@@ -992,13 +991,33 @@ object {
 	position: relative;
 }
 
+#natalie{
+	color: white;
+	padding:  36px 0 0 0;
+	min-height: 100vh;
+}
+
 /*--------------------------------------------------------------
 ## sections  -  work
 --------------------------------------------------------------*/
 #work{
-/*	background: #BE93C5;
+	color: white;
+
+	padding: 5vh 0;
+	background: #BE93C5;
+	background: #BE93C5;
 	background: -webkit-linear-gradient(to top, #7BC6CC, #BE93C5);
-	background: linear-gradient(to top, #7BC6CC, #BE93C5); */
+	background: linear-gradient(to top, #7BC6CC, #BE93C5); 	
+}
+
+#work article{
+	border-top: 1px solid white;
+	background-image: -moz-linear-gradient(center bottom, rgb(255,255,255) 0%, rgb(255,255,255) 0% );
+	/*border-bottom: 1px solid white;*/		
+}
+
+#work article:last-child{
+	margin-bottom: 70px;
 }
 
 .hidden{
@@ -1007,7 +1026,7 @@ object {
 
 .site-content{
 
-	   /* Firefox */
+	   /* Firefox 
 	   -moz-transition: all 1s ease-in;
 	   /* WebKit */
 	   -webkit-transition: all 1s ease-in;
@@ -1026,7 +1045,7 @@ object {
 .cloned-content .post{
 	padding: 10px;
 	width: 47%;
-	color: white;
+	/*color: white;*/
 }
 
 .category-video{
@@ -1052,19 +1071,23 @@ object {
 	opacity:0;
 }
 
-#work, #work .section-content-wrapper{
+/*#work, #work .section-content-wrapper{
 	position: relative;
-}
+}*/
 
+#work .section{
+}
 
 /*--------------------------------------------------------------
 ## sections  -  about
 --------------------------------------------------------------*/
 
 #about{
-/*	background: #ffd89b;  
+	color: white;
+	padding: 5vh 0;
+	background: #19547b;  
 	background: -webkit-linear-gradient(to top, #19547b, #ffd89b);  
-	background: linear-gradient(to top, #19547b, #ffd89b); */
+	background: linear-gradient(to top, #19547b, #ffd89b); 
 }
 
 #about .section-content{
@@ -1077,16 +1100,17 @@ object {
 #about .quote-content{
 	width: 30vw;
 	margin: auto;
-	padding: 5vh 0 10vh;
+	/*padding: 700px 0 10vh;*/
 	float: right;
 }
+
 
 /*--------------------------------------------------------------
 # footer
 --------------------------------------------------------------*/
 
 .site-footer{
-	height: 100vh;
+	height: 30vh;
 	background: #000000;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to top, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
