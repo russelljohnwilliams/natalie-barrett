@@ -960,7 +960,7 @@ object {
 	overflow: hidden;
 	clear:both;
 	padding: 20px 40px 40px;
-	position: relative;
+	position: relative;		
 }
 
 /*.section-background-image{
@@ -995,24 +995,31 @@ object {
 	color: white;
 	padding:  36px 0 0 0;
 	min-height: 100vh;
+	z-index: 20;
+
 }
+
+#natalie img{
+	object-fit: cover;
+}
+
 
 /*--------------------------------------------------------------
 ## sections  -  work
 --------------------------------------------------------------*/
 #work{
 	color: white;
-
-	padding: 5vh 0;
-	background: #BE93C5;
-	background: #BE93C5;
-	background: -webkit-linear-gradient(to top, #7BC6CC, #BE93C5);
-	background: linear-gradient(to top, #7BC6CC, #BE93C5); 	
+	padding: 5vh 0 0 0;
+	background: #60c5ba;
+	position: relative;
+/*	background: -webkit-linear-gradient(to top, #7BC6CC, #BE93C5);
+	background: linear-gradient(to top, #7BC6CC, #BE93C5); 	*/
 }
 
-#work article{
+#work .entry-header{
 	border-top: 1px solid white;
-	background-image: -moz-linear-gradient(center bottom, rgb(255,255,255) 0%, rgb(255,255,255) 0% );
+	padding: 10px 0;
+	/*background-image: -moz-linear-gradient(center bottom, rgb(255,255,255) 0%, rgb(255,255,255) 0% );*/
 	/*border-bottom: 1px solid white;*/		
 }
 
@@ -1043,8 +1050,8 @@ object {
 }
 
 .cloned-content .post{
-	padding: 10px;
-	width: 47%;
+	padding: 50px 0 0 0; 
+	width: 45%;
 	/*color: white;*/
 }
 
@@ -1063,7 +1070,7 @@ object {
 
 .category-audio,.category-video{
 	position: relative;
-	top: 50px;
+	/*top: 50px;*/
 }
 
 .section-content,  
@@ -1085,9 +1092,11 @@ object {
 #about{
 	color: white;
 	padding: 5vh 0;
-	background: #19547b;  
-	background: -webkit-linear-gradient(to top, #19547b, #ffd89b);  
-	background: linear-gradient(to top, #19547b, #ffd89b); 
+	background: #fcbe32;
+/*	background: -webkit-linear-gradient(to top, #19547b, #ffd89b);  
+	background: linear-gradient(to top, #19547b, #ffd89b); */
+	position: relative;
+	color: black;
 }
 
 #about .section-content{
@@ -1100,8 +1109,9 @@ object {
 #about .quote-content{
 	width: 30vw;
 	margin: auto;
-	/*padding: 700px 0 10vh;*/
+	padding-top: 50px;
 	float: right;
+	position: relative;
 }
 
 
@@ -1110,11 +1120,12 @@ object {
 --------------------------------------------------------------*/
 
 .site-footer{
+	padding: 20px;
 	height: 30vh;
 	background: #000000;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to top, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+	color: white;
 }
 
 
