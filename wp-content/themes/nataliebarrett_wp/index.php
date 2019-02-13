@@ -51,10 +51,8 @@ get_header(); ?>
 					else :
 						get_template_part( 'template-parts/content', 'none' );
 
-					endif; ?>
-				</div>
-
-		<?php query_posts('post_type=page&order=ASC'); ?>	
+					endif; ?>	</div>	
+<?php query_posts('post_type=page&order=ASC'); ?>	
 		
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
@@ -62,23 +60,24 @@ get_header(); ?>
 			
 			<?php the_title(); ?>
 			
-			><?php 
+		>
+
+<?php 
 if ( has_post_thumbnail() ) {
 the_post_thumbnail();
 }  ?>
 
 			<div class="section-content-wrapper">
 
-			<div class="section-title">
-				<p><?php the_title(); ?></p>
-			</div>
+			<?php if( get_field('page_title') ): ?>
+				<div class="page_title">
+					<?php the_field('page_title'); ?>
+				</div>
+			<?php endif; ?>
 			<div class="section-content">
 				<?php the_content(); ?>
-
 			</div>
-			<div class="quote-content">
-				<?php the_field('quote-content'); ?>
-			</div>
+		
 		</div>
 		</div>
 
@@ -115,8 +114,6 @@ the_post_thumbnail();
 
 
 
-
-
-		<?php
-		get_sidebar();
-		get_footer();
+<?php
+get_sidebar();
+get_footer();

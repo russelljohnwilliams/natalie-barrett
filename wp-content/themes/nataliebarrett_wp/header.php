@@ -16,9 +16,10 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<!-- <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT:400i|Permanent+Marker" rel="stylesheet"> -->
-	<!-- <link href="https://fonts.googleapis.com/css?family=Dosis|Quicksand|Reenie+Beanie|Old+Standard+TT:400i" rel="stylesheet"> -->
-	<link href="https://fonts.googleapis.com/css?family=Oxygen:300|Quicksand|Reenie+Beanie" rel="stylesheet">
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Dosis|Quicksand|Old+Standard+TT:400i|Permanent+Marker|Cookie|Reenie+Beanie" rel="stylesheet">
 	
 	<?php wp_head(); ?>
 </head>

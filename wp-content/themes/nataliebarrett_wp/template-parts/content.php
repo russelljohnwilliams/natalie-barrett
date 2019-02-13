@@ -9,7 +9,8 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> style="background-color:<?php the_field('background_colour'); ?>;">
+	<div class="text-wrapper">
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
@@ -27,6 +28,7 @@
 	<?php nataliebarrett_wp_post_thumbnail(); ?>
 
 	<div class="entry-content">
+
 		<?php
 			the_content( sprintf(
 				wp_kses(
@@ -46,8 +48,13 @@
 				'after'  => '</div>',
 			) );
 		?>
-	</div><!-- .entry-content -->
 
+</div><!-- .entry-content -->
+	</div>
+	<div class="image-media-wrapper">
+		<div class="background-image"><img src=" <?php the_field('image'); ?>" /></div>
+		<div class="media-content"><?php the_field('media_link'); ?></div>
+	</div>
 	<footer class="entry-footer">
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

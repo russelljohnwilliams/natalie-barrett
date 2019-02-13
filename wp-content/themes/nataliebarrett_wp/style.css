@@ -41,21 +41,24 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Media
 	## Captions
 	## Galleries
-# sections
-	## sections  -  natalie (home)
-	## sections  -  work
-	## sections  -  about
-# footer
+# Sections
+	## Sections  -  Natalie (home)
+	## Sections  -  Work
+	## Sections  -  About
+# Footer
+# Media queries
+--------------------------------------------------------------*/
 
-	--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
+
 html {
 	font-family: 'Quicksand', sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
-	background-color: grey;	
+	background-color: whitesmoke;	
+	margin-top: 0;
 }
 
 body {
@@ -353,7 +356,7 @@ html {
 }
 
 body {
-	background: grey;
+	background: whitesmoke;
 	/* Fallback for when there is no custom background color defined. */
 }
 
@@ -391,9 +394,10 @@ dd {
 }
 
 img {
-	height: auto;
-	/* Make sure images are scaled correctly. */
-	max-width: 100%;
+	height: 100%;
+	min-width: 100%;
+	 /*Make sure images are scaled correctly. */
+	max-width: auto
 	/* Adhere to container width. */
 }
 
@@ -614,44 +618,70 @@ a:hover, a:active {
 }
 
 .main-navigation li:nth-child(n + 3){
-	/*	font-size: xx-large;
-		margin-top: -5px;
-		width: 60vw;
-		text-align: center;*/
-		font-size: medium;
-		float: right;
+	font-size: medium;
+	float: right;
 }
 
 #primary-menu{
-/*	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: space-between;*/
-	padding: 0 5vw;
-	background-color: rgba(10,10,10,0.2);
+	padding: 10px;
+	background-color: #9FCFE0;
 	overflow: auto;
+	box-shadow: 0 7px 10px rgba(0, 0, 0, 0.2);
 }
 
 #site-navigation{
 	position: fixed;
-	/*opacity: 0.5;*/
-	height: 100px;
-	/*background-color: #feee7d;*/
-	/*box-shadow: 0 0.3px 20px black;*/
-	/*color: white;*/
-	z-index: 50;
+	z-index: 5000;
 }
 
 #site-navigation a{
-	color: white;
+	color: whitesmoke;
 	font-family: 'Quicksand', sans-serif;
 	font-size: large;
 }
+
+
+/*--------------------------------------------------------------
+## Cross
+--------------------------------------------------------------*/
+
+
+.container {
+	padding: 6px;
+	display: inline-block;
+	cursor: pointer;
+	z-index: 500;
+	position: absolute;
+}
+
+.bar1, .bar2, .bar3{
+	width: 25px;
+	height: 3px;
+	background-color: whitesmoke;
+	margin: 4px 0;
+	transition: 0.4s;
+}
+
+.change .bar1 {
+	-webkit-transform: rotate(-45deg) translate(-2px, 7px);
+	transform: rotate(-45deg) translate(-2px, 7px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+	-webkit-transform: rotate(45deg) translate(-3px, -8px);
+	transform: rotate(45deg) translate(-3px, -8px);
+}
+
+
+
 
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
 /* Text meant only for screen readers. */
+
 .screen-reader-text {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
@@ -773,11 +803,6 @@ a:hover, a:active {
 	display: none;
 }
 
-/*.page-content,
-.entry-content,
-.entry-summary {
-	margin: 0;
-}*/
 
 .page-links {
 	clear: both;
@@ -799,21 +824,7 @@ a:hover, a:active {
 # quote-block
 --------------------------------------------------------------*/
 
-.quote-content{
-	/*border: solid white 1px;*/
-	
-	font-family: 'Oxygen', sans-serif;
-	text-align: center;
-	font-size: large;
-	opacity: 0;
 
-	position: relative;
-	/*color: white;*/
-}
-
-.quote-content::first-line{
-	font-style: italic;
-}
 
 /*--------------------------------------------------------------
 # Infinite scroll
@@ -927,104 +938,118 @@ object {
 }
 
 /*--------------------------------------------------------------
-# sections
+# Sections
 --------------------------------------------------------------*/
 
-.page-section img{
-	height: 100vh;
-	position: absolute;
-	/*padding: 10vh 0;*/
-	/*position: fixed;*/
-	top: 0;
-/*	-webkit-clip-path: polygon(50% 0%, 100% 0, 100% 95%, 50% 100%, 0 95%, 0 0);
-	clip-path: polygon(50% 0%, 100% 0, 100% 95%, 50% 100%, 0 95%, 0 0);*/
+
+#natalie, #about, #work, #contact{
+	min-height: 100vh;
 }
 
-.section-title {
-	/*display: none;*/
-	/*color: white;*/
-	font-size: 70px;
+#natalie .page-section img{
+	/*width: 100vw;*/
+	position: absolute;
+	top: 0;
+	-webkit-clip-path: polygon(100% 0, 100% 94%, 50% 100%, 0 94%, 0 0);
+	clip-path: polygon(100% 0, 100% 94%, 50% 100%, 0 94%, 0 0);
+}
+
+.page_title {
+	font-size: 120px;
 	font-family: 'Reenie Beanie', cursive;
+	text-align: center;
 }
 
 .section-content{
-	/*color: white;*/
 	position: relative;
+}
+
+
+.section-content-wrapper{
+	padding-top: 70px;
+	height: 100%;
+	width: 100%;
 }
 
 .section-content-wrapper{
-	width: 90vw;
-	min-height: 90vh;
+/*	width: 90vw;
+	height: 100%;
 	margin: auto;
-	border-top: 1px solid white;
+	border-top: 0;
 	overflow: hidden;
 	clear:both;
 	padding: 20px 40px 40px;
-	position: relative;		
+	position: relative;	*/	
 }
 
-/*.section-background-image{
-	height: 100vh;
-}
-*/
 /*--------------------------------------------------------------
-## sections  -  natalie (home)
+## Sections  -  Natalie (Home)
 --------------------------------------------------------------*/
 
-#natalie .section-content, #natalie .quote-content{
-	width: 40vw;
+#home .section-content{
 	margin: auto;
 }
 
-#natalie .section-content{
-	text-align: justify;
+#home .section-content p{
 }
 
-#natalie .quote-content{
-	padding-top: 40vh;
+#home .section-content{
+	text-align: right;
+	margin-top: -40px;
+	color: gold;
+	padding-right: 20px;
 }
 
-#natalie .section-title{
-	transform: rotate(-5deg);
-	padding: 10px 100px;
-	font-size: 100px;
+#home .section-content-wrapper{
+	position: absolute;
+	top: 0;
+	opacity: 0;
+}
+
+#home .page_title{
+	font-size: 130px;
 	position: relative;
+	padding-top: 30vh;
+	text-align: right;
+	padding-right: 20px;
 }
 
-#natalie{
-	color: white;
-	padding:  36px 0 0 0;
-	min-height: 100vh;
+#home{
+	color: whitesmoke;
+	padding: 0;
 	z-index: 20;
-
+	overflow: hidden;
+	min-height: 100vh;
+	max-height: 100vh;
 }
 
-#natalie img{
+#home img{
 	object-fit: cover;
+	height: 100vh;
+	padding-top: 5vh;
+	max-width: 100%;
 }
 
+.cloned-content{
+	opacity: 0;
+}
 
 /*--------------------------------------------------------------
-## sections  -  work
+## Sections  -  Work
 --------------------------------------------------------------*/
+
 #work{
-	color: white;
-	padding: 5vh 0 0 0;
-	background: #60c5ba;
+	color: whitesmoke;
+	/*padding: 5vh 0 0 0;*/
+	background: lightgrey;
+	background: lightgrey;
 	position: relative;
-/*	background: -webkit-linear-gradient(to top, #7BC6CC, #BE93C5);
-	background: linear-gradient(to top, #7BC6CC, #BE93C5); 	*/
+	border-top: whitesmoke 50px solid;
+	position: relative;
 }
 
-#work .entry-header{
-	border-top: 1px solid white;
-	padding: 10px 0;
-	/*background-image: -moz-linear-gradient(center bottom, rgb(255,255,255) 0%, rgb(255,255,255) 0% );*/
-	/*border-bottom: 1px solid white;*/		
-}
-
-#work article:last-child{
-	margin-bottom: 70px;
+#work .page_title{
+	margin-bottom: 20px;
 }
 
 .hidden{
@@ -1032,92 +1057,194 @@ object {
 }
 
 .site-content{
-
-	   /* Firefox 
-	   -moz-transition: all 1s ease-in;
-	   /* WebKit */
-	   -webkit-transition: all 1s ease-in;
-	   /* Opera */
-	   -o-transition: all 1s ease-in;
-	   /* Standard */
-	   transition: all 1s ease-in;
+	/*Firefox */
+	-moz-transition: all 1s ease-in;
+	/*WebKit */
+	-webkit-transition: all 1s ease-in;
+	/*Opera */
+	-o-transition: all 1s ease-in;
+	/*Standard */
+	transition: all 1s ease-in;
 }
 
 .cloned-content{
-	width: 75vw;
+	position: relative;
 	margin: auto;
 	overflow: hidden;
+	float: left;
+	width: calc(50%);
+	color: black;
+	/*height: 33%;*/
 }
+
+
+/*.cloned-content:before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  box-shadow: inset 0px 0px 100px black;
+  opacity: 0.5;
+}*/
 
 .cloned-content .post{
-	padding: 50px 0 0 0; 
+	padding: 0; 
 	width: 45%;
-	/*color: white;*/
-}
-
-.category-video{
-	float: right;
-	clear: both;
-}
-
-.category-video .entry-content p:first-child{
-	background-color: black;
-}
-
-.category-audio{
-	float: left;
 }
 
 .category-audio,.category-video{
-	position: relative;
-	/*top: 50px;*/
+	width: auto;
+	display: block;
 }
 
-.section-content,  
-.cloned-content .post{
-	opacity:0;
+.cloned-content{
+	/*opacity:0;*/
 }
 
-/*#work, #work .section-content-wrapper{
-	position: relative;
-}*/
-
-#work .section{
+#work .entry-header, #work .entry-content{
+	position: absolute;
+	text-align: center;
+	z-index: 100;
+	width: calc(100% - 20px);
 }
 
-/*--------------------------------------------------------------
-## sections  -  about
---------------------------------------------------------------*/
-
-#about{
-	color: white;
-	padding: 5vh 0;
-	background: #fcbe32;
-/*	background: -webkit-linear-gradient(to top, #19547b, #ffd89b);  
-	background: linear-gradient(to top, #19547b, #ffd89b); */
-	position: relative;
-	color: black;
+.text-wrapper{
+		padding: 0 10px;
+    float: right;
+    width: 50%;
+    position: relative;
+    height: 100%;
 }
 
-#about .section-content{
-	width: 46vw;
-	margin-left: 3vw;
-	text-align: justify;
+.cloned-content:nth-child(3n) .text-wrapper, .cloned-content:nth-child(4n) .text-wrapper{
 	float: left;
 }
 
-#about .quote-content{
-	width: 30vw;
-	margin: auto;
-	padding-top: 50px;
-	float: right;
+#work .entry-header{
+	font-family: 'Reenie Beanie', cursive;
+	font-size: 1.8rem;
+	top: 30%;
+}
+
+#work .entry-content{
+	top: 50%;
+}
+
+.image-media-wrapper{
+	width: 50%;
+	float: left;
+	overflow: hidden;
+	height: 100%;
 	position: relative;
+}
+
+.cloned-content:nth-child(3n) .image-media-wrapper, .cloned-content:nth-child(4n) .image-media-wrapper{
+	float: right;
+}
+
+#work .cloned-content .background-image{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+}
+
+#work .media-content{
+	position: absolute;
+	float: right;
+	width: 100%;
+	top: 0;
+	z-index: 200;
+	height: 100%;
+	/*Firefox */
+	-moz-transition: all 0.5s ease-in;
+	/*WebKit */
+	-webkit-transition: all 0.5s ease-in;
+	/*Opera */
+	-o-transition: all 0.5s ease-in;
+	/*Standard */
+	transition: all 0.5s ease-in;
+}
+
+iframe{
+	width: 100%;
+	height: 100%;
+	background: black;
+}
+
+#work .section-content{
+	/*width: 75%;*/
+	/*margin-left: auto;*/
+	/*margin-right: auto;*/
+	overflow: hidden;
+	word-wrap: break-word;
+	text-align: center;
+}
+
+.category-audio, .category-video{
+	position: relative;
+	top: 50px;
+}
+
+.media-content{
+	opacity: 0;
+}
+
+/*--------------------------------------------------------------
+## Sections  -  About
+--------------------------------------------------------------*/
+
+#about{
+	color: whitesmoke;
+	padding: 5vh 0;
+	background: #FF8B8B;
+	position: relative;
+}
+
+#about .section-content{
+	width: 50vw;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: justify;
+	margin-top: 20px;
+	padding: 70px 0;
+	color: black;
+}
+
+#about .section-title {
+	margin-bottom: 30px;
+}
+
+/*--------------------------------------------------------------
+## Sections  -  Quotes
+--------------------------------------------------------------*/
+
+
+#quote1, #quote2, #quote3{
+	height: 40vh;
+	background: whitesmoke;
+	z-index: 5000;
+}
+
+
+#quote1 .section-content, #quote2 .section-content, #quote3 .section-content{
+	text-align: center;
+}
+
+#quote1 .section-content{
+	opacity: 0;
 }
 
 
 /*--------------------------------------------------------------
-# footer
+# Footer
 --------------------------------------------------------------*/
+#contact{
+	background: #FCA261;
+	padding-top: 120px;
+	color: whitesmoke;
+	text-align: center;
+}
+
 
 .site-footer{
 	padding: 20px;
@@ -1125,8 +1252,106 @@ object {
 	background: #000000;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to top, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	color: white;
+	color: whitesmoke;
 }
+
+
+
+/*--------------------------------------------------------------
+# media queries
+--------------------------------------------------------------*/
+
+
+@media only screen and (max-width: 600px) {
+
+	#site-navigation a{
+		font-size: large;
+		padding-left: 10vw;
+	}
+
+	.mobileHeader{
+		position: absolute;
+		top: 0;
+		height: 40px;
+		font-family: 'Reenie Beanie', cursive;
+		color: whitesmoke;
+		text-align: center;
+		width: 100%;
+		font-size: xx-large;
+	}
+
+	.main-navigation li {
+		font-size: small;
+		float: left;
+		/*display: inline-block;*/
+		padding: 5px 5px;
+		width: 31vw;
+	}
+
+	.main-navigation li, .main-navigation li:nth-child(n + 3){
+		width: 100vw;
+		float: none;
+		padding: 20px 0;
+		font-size: 50px;
+	}
+
+	#primary-menu{
+		padding: 0 10px;
+		margin-top: 40px;
+		display: none;
+		background-color: teal;
+	}
+
+	.menu-toggle{
+		display: none;
+	}
+
+	#natalie .section-title {
+		display: none;
+	}
+
+	#natalie .section-content{
+		width: calc(100vw - 60px);
+		margin: auto;
+	}
+
+	#natalie .section-content{
+		padding-top: 20px;
+		margin-top: 25vh;
+	}
+
+	#work .section-content{
+		float: none;
+		width: calc(100vw - 20px);
+	}
+
+	.section-content-wrapper{
+		padding: 70px;
+		height: 100%;
+		width: 100%;
+	}
+
+	#about .section-content{
+		width: calc(100vw - 20px);
+		margin: 0;
+		padding: 20px 30px;
+		text-align: justify;
+		float: none;
+	}
+
+	#about .qupote-content{
+		font-size: medium;
+	}
+
+
+}
+
+
+
+
+
+
+
 
 
 
