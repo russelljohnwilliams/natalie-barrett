@@ -14,37 +14,26 @@ jQuery( document ).ready(function() {
    fadeInContentOnScroll('#quote2 .section-content')
    fadeInContentOnScroll('#quote3 .section-content')
  }else{
-   // fadeInContentOnScroll('#home article')
-   // fadeInContentOnScroll('.cloned-content  ', '0px')
-   // fadeInContentOnScroll('#quote1 .section-content', '0')  
-   // fadeInContent('#home .section-content', '20px')
    rearangeNavBar()
    addCrossToNavBar()
-   // removeElements()
+   removeNavBar()
  }
 })
 
 function setClonedContentHeight(){
-
   var clonedContent = jQuery('#work .cloned-content')
-  var widthText = clonedContent.css('width')
-  var width = parseInt(widthText, 10)
-  // var halfWidth = int / 2
-  if (jQuery(window).width() > 600) {
-    clonedContent.css({'height': ((width / 2) + 'px')})
-  }else{
-    clonedContent.css({'height': (width + 'px')})}
+  var widthString = clonedContent.css('width')
+  var width = parseInt(widthString, 10)
+    clonedContent.css({'height': ((width) + 'px')})
 }
 
 jQuery(function() {
   jQuery("#work .cloned-content").hover(
     function(){  
       jQuery(this).find('.media-content').css("opacity", "1");
-      jQuery(this).css("color", 'whitesmoke')
     }, 
     function(){
       jQuery(this).find('.media-content').css("opacity", "0");
-      jQuery(this).css({"color": 'black'})
     });
 })
 
@@ -66,10 +55,6 @@ jQuery(function(){
   }
 })
 
-// function removeElements(){
-//   jQuery("#").remove();
-// }
-
 function cloneContent(){
   jQuery(".post").clone().removeAttr('class').attr('class', "cloned-content content-to-clone").appendTo('#work .section-content-wrapper .section-content');
 }
@@ -81,7 +66,11 @@ function rearangeNavBar(){
 
 function addCrossToNavBar(){
   jQuery("#site-navigation").prepend("<div class='container'><div class='bar1'></div><div class='bar2'></div><div class='bar3'></div></div><div class='mobileHeader'>natalie barrett</div>");
+}
 
+function removeNavBar(){
+  jQuery('.main-navigation').remove();
+  jQuery('.site-branding').remove();
 }
 
 function removeHrefFromMenu(){

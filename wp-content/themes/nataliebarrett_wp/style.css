@@ -1085,7 +1085,7 @@ object {
 	padding-top: 5vh;
 	max-width: 100%;
 	/*-webkit-filter: sepia(1) brightness(90%) contrast(75%) hue-rotate(170deg);*/
-	-webkit-filter: brightness(90%) contrast(75%);
+	-webkit-filter: brightness(90%) contrast(85%);
 }
 
 
@@ -1107,6 +1107,10 @@ object {
 	position: relative;
 }
 
+#work img{
+	-webkit-filter: brightness(90%) contrast(85%);
+}
+
 #work .page_title{
 	margin-bottom: 20px;
 }
@@ -1115,14 +1119,12 @@ object {
 	display: none;
 }
 
-
-
 .cloned-content{
 	position: relative;
 	margin: auto;
 	overflow: hidden;
 	float: left;
-	width: calc(50%);
+	width: calc(100% / 3);
 	color: black;
 	/*Firefox */
 	-moz-transition: all 0.3s ease-in;
@@ -1159,19 +1161,20 @@ object {
 
 .text-wrapper{
 	padding: 0 10px;
-	float: right;
-	width: 50%;
-	position: relative;
+	/*float: right;*/
+	width: 100%;
+	position: absolute;
 	height: 100%;
+	color: whitesmoke;
 }
 
-.cloned-content:nth-child(3n) .text-wrapper, .cloned-content:nth-child(4n) .text-wrapper{
+/*.cloned-content:nth-child(3n) .text-wrapper, .cloned-content:nth-child(4n) .text-wrapper{
 	float: left;
-}
+}*/
 
 #work .entry-header{
 	font-family: 'Reenie Beanie', cursive;
-	font-size: 1.8rem;
+	font-size: 2.5rem;
 	top: 30%;
 }
 
@@ -1180,16 +1183,16 @@ object {
 }
 
 .image-media-wrapper{
-	width: 50%;
-	float: left;
+	width: 100%;
+	/*float: left;*/
 	overflow: hidden;
 	height: 100%;
-	position: relative;
+	position: absolute;
 }
 
-.cloned-content:nth-child(3n) .image-media-wrapper, .cloned-content:nth-child(4n) .image-media-wrapper{
+/*.cloned-content:nth-child(3n) .image-media-wrapper, .cloned-content:nth-child(4n) .image-media-wrapper{
 	float: right;
-}
+}*/
 
 #work .cloned-content .background-image{
 	position: absolute;
@@ -1322,6 +1325,8 @@ iframe{
 	# navigation
 	.......................................*/
 
+/*
+
 	.main-navigation{
 		display: none;
 	}
@@ -1345,7 +1350,6 @@ iframe{
 	.main-navigation li {
 		font-size: small;
 		float: left;
-		/*display: inline-block;*/
 		padding: 5px 5px;
 		width: 31vw;
 	}
@@ -1366,7 +1370,8 @@ iframe{
 
 	.menu-toggle{
 		display: none;
-	}
+	}*/
+
 
 	/*.......................................
 	# general
@@ -1423,7 +1428,7 @@ iframe{
 
 #home .section-content{
 	padding-top: 20px;
-	margin-top: 25vh;
+	/*margin-top: 25vh;*/
 }
 
 #home .page_title{
