@@ -63,7 +63,7 @@ get_header(); ?>
 		>
 	<div class="img-wrapper">
 		<?php 
-			if ( has_post_thumbnail() ) {
+			if ( has_post_thumbnail() ) { ?><div class="img-overlay"></div><?php
 			the_post_thumbnail();
 		}  ?></div>
 
