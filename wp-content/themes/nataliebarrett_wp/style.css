@@ -1168,9 +1168,6 @@ object {
 	color: whitesmoke;
 }
 
-/*.cloned-content:nth-child(3n) .text-wrapper, .cloned-content:nth-child(4n) .text-wrapper{
-	float: left;
-}*/
 
 #work .entry-header{
 	font-family: 'Reenie Beanie', cursive;
@@ -1184,15 +1181,11 @@ object {
 
 .image-media-wrapper{
 	width: 100%;
-	/*float: left;*/
 	overflow: hidden;
 	height: 100%;
 	position: absolute;
 }
 
-/*.cloned-content:nth-child(3n) .image-media-wrapper, .cloned-content:nth-child(4n) .image-media-wrapper{
-	float: right;
-}*/
 
 #work .cloned-content .background-image{
 	position: absolute;
@@ -1225,9 +1218,6 @@ iframe{
 }
 
 #work .section-content{
-	/*width: 75%;*/
-	/*margin-left: auto;*/
-	/*margin-right: auto;*/
 	overflow: hidden;
 	word-wrap: break-word;
 	text-align: center;
@@ -1428,13 +1418,12 @@ iframe{
 
 #home .section-content{
 	padding-top: 20px;
-	/*margin-top: 25vh;*/
 }
 
 #home .page_title{
 	font-size: 50px;
 	position: relative;
-	padding-top: 30vh;
+	padding-top: 45vh;
 	text-align: center;
 	padding-right: 20px;
 }
@@ -1450,7 +1439,7 @@ iframe{
 #about .section-content{
 	width: 100vw;
 	margin: 0;
-	padding: 20px 30px;
+	padding: 0 30px;
 	text-align: justify;
 	float: none;
 }
@@ -1484,7 +1473,6 @@ iframe{
 #work .section-content{
 	float: none;
 	background: whitesmoke;
-	/*width: calc(100vw - 20px);*/
 }
 
 #work .cloned-content{

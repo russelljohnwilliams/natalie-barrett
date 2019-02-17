@@ -13,6 +13,9 @@ jQuery( document ).ready(function() {
    fadeInContentOnScroll('#quote1 .section-content')
    fadeInContentOnScroll('#quote2 .section-content')
    fadeInContentOnScroll('#quote3 .section-content')
+   removeNavExpandButton()
+ }else{
+  createMobileHeader()
  }
 })
 
@@ -50,6 +53,8 @@ jQuery(function(){
     })
   }
 })
+
+
 
 function cloneContent(){
   jQuery(".post").clone().removeAttr('class').attr('class', "cloned-content content-to-clone").appendTo('#work .section-content-wrapper .section-content');
@@ -109,27 +114,35 @@ function parallax(object, speed){
   });
 };
 
-jQuery(function() {
-  jQuery('.container').bind('click',function(event){
-    jQuery('.container').toggleClass("change");
-    var button = jQuery('.container')
-    if (button.attr('aria-expanded') === 'false') {
-      jQuery(this).attr( 'aria-expanded', 'true');
-      jQuery('#primary-menu').slideDown("slow");
-    } else {
-      jQuery(this).attr( 'aria-expanded', 'false');
-      jQuery('#primary-menu').slideUp("slow");
-    }  
-  });
-});
+function removeNavExpandButton(){
+  jQuery('.container').remove()
+}
 
-jQuery(function() {
-  jQuery('.menu-item').bind('click',function(event){
-    jQuery('.container').toggleClass("change");
-    jQuery('.container').attr( 'aria-expanded', 'false');
-    jQuery('#primary-menu').slideUp("slow");
+function createMobileHeader(){
+  jQuery(function() {
+    jQuery('.container').bind('click',function(event){
+      jQuery('.container').toggleClass("change");
+      var button = jQuery('.container')
+      if (button.attr('aria-expanded') === 'false') {
+        jQuery(this).attr( 'aria-expanded', 'true');
+        jQuery('#primary-menu').slideDown("slow");
+      } else {
+        jQuery(this).attr( 'aria-expanded', 'false');
+        jQuery('#primary-menu').slideUp("slow");
+      }  
+    });
   });
-});
+
+  jQuery(function() {
+    jQuery('.menu-item').bind('click',function(event){
+      jQuery('.container').toggleClass("change");
+      jQuery('.container').attr( 'aria-expanded', 'false');
+      jQuery('#primary-menu').slideUp("slow");
+    });
+  });
+
+}
+
 
 
 
