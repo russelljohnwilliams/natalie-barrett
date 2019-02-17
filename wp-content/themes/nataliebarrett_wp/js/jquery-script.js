@@ -4,39 +4,36 @@ jQuery( document ).ready(function() {
   removeHrefFromMenu()
   parallax(jQuery("#home .page_title"), -3);
   parallax(jQuery("#home .section-content"), -3);
-  setWorkArticleHeight()
-
-
-  if (jQuery(window).width() > 600) {
-   fadeInContentOnScroll('.cloned-content  ', '0')
-   fadeInContentOnScroll('#quote1 .section-content', '20px')
-   fadeInContentOnScroll('#quote2 .section-content', '20px')
-   fadeInContentOnScroll('#quote3 .section-content', '20px')
-   fadeInContentOnScroll('#work .section-content-wrapper')
+  setClonedContentHeight()
    setTimeout(function(){
     fadeInContent('#home .section-content-wrapper')
   }, 500)
+
+  if (jQuery(window).width() > 600) {
+   fadeInContentOnScroll('#quote1 .section-content')
+   fadeInContentOnScroll('#quote2 .section-content')
+   fadeInContentOnScroll('#quote3 .section-content')
  }else{
-   fadeInContentOnScroll('#home article')
-   fadeInContentOnScroll('.cloned-content  ', '0px')
-   fadeInContentOnScroll('#quote1 .section-content', '0')  
-   fadeInContent('#home .section-content', '20px')
-   setTimeout(function(){
-    fadeInContent('#natalie .quote-content', '25vh')
-  }, 500)
+   // fadeInContentOnScroll('#home article')
+   // fadeInContentOnScroll('.cloned-content  ', '0px')
+   // fadeInContentOnScroll('#quote1 .section-content', '0')  
+   // fadeInContent('#home .section-content', '20px')
    rearangeNavBar()
    addCrossToNavBar()
-   removeElements()
+   // removeElements()
  }
-
 })
 
-function setWorkArticleHeight(){
-  var article = jQuery('#work .cloned-content')
-  var width = article.css('width')
-  var int = parseInt(width, 10)
-  var halfWidth = int / 2
-  article.css({'height': (halfWidth+'px')})
+function setClonedContentHeight(){
+
+  var clonedContent = jQuery('#work .cloned-content')
+  var widthText = clonedContent.css('width')
+  var width = parseInt(widthText, 10)
+  // var halfWidth = int / 2
+  if (jQuery(window).width() > 600) {
+    clonedContent.css({'height': ((width / 2) + 'px')})
+  }else{
+    clonedContent.css({'height': (width + 'px')})}
 }
 
 jQuery(function() {
@@ -48,7 +45,16 @@ jQuery(function() {
     function(){
       jQuery(this).find('.media-content').css("opacity", "0");
       jQuery(this).css({"color": 'black'})
+    });
+})
 
+jQuery(function() {
+  jQuery(".menu-item a").hover(
+    function(){  
+      jQuery(this).css("color", 'darkslategrey')
+    }, 
+    function(){
+      jQuery(this).css({"color": 'whitesmoke'})
     });
 })
 
@@ -60,9 +66,9 @@ jQuery(function(){
   }
 })
 
-function removeElements(){
-  $("#").remove();
-}
+// function removeElements(){
+//   jQuery("#").remove();
+// }
 
 function cloneContent(){
   jQuery(".post").clone().removeAttr('class').attr('class', "cloned-content content-to-clone").appendTo('#work .section-content-wrapper .section-content');
@@ -92,7 +98,6 @@ jQuery(function() {
 });
 
 function fadeInContentOnScroll(content, top){
-  console.log("scroll", content)
   jQuery(window).scroll( function(){
     jQuery(content).each( function(i){
       var bottom_of_object = jQuery(this).offset().top + jQuery(this).outerHeight();
@@ -105,7 +110,7 @@ function fadeInContentOnScroll(content, top){
 } 
 
 function fadeInContent(content, top){
-  jQuery(content).animate({'opacity':'1', 'padding-top': top},1500); 
+  jQuery(content).animate({'opacity':'1'},2500); 
 }
 
 function parallax(object, speed){

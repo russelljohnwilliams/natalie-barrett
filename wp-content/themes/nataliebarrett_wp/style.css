@@ -396,7 +396,7 @@ dd {
 img {
 	height: 100%;
 	min-width: 100%;
-	 /*Make sure images are scaled correctly. */
+	/*Make sure images are scaled correctly. */
 	max-width: auto
 	/* Adhere to container width. */
 }
@@ -638,6 +638,14 @@ a:hover, a:active {
 	color: whitesmoke;
 	font-family: 'Quicksand', sans-serif;
 	font-size: large;
+	/*Firefox */
+	-moz-transition: all 0.2s ease-in;
+	/*WebKit */
+	-webkit-transition: all 0.2s ease-in;
+	/*Opera */
+	-o-transition: all 0.2s ease-in;
+	/*Standard */
+	transition: all 0.2s ease-in;
 }
 
 
@@ -942,11 +950,11 @@ object {
 --------------------------------------------------------------*/
 
 
-#natalie, #about, #work, #contact{
+#home, #about, #work, #contact{
 	min-height: 100vh;
 }
 
-#natalie .page-section img{
+#home img{
 	/*width: 100vw;*/
 	position: absolute;
 	top: 0;
@@ -966,25 +974,74 @@ object {
 
 
 .section-content-wrapper{
-	padding-top: 70px;
+	padding-top: 100px;
 	height: 100%;
 	width: 100%;
 }
 
-.section-content-wrapper{
-/*	width: 90vw;
-	height: 100%;
-	margin: auto;
-	border-top: 0;
-	overflow: hidden;
-	clear:both;
-	padding: 20px 40px 40px;
-	position: relative;	*/	
-}
 
 /*--------------------------------------------------------------
 ## Sections  -  Natalie (Home)
 --------------------------------------------------------------*/
+
+
+/* CSS variables. Not needed for the effect to work. */
+/*:root {
+  --base:              #eac000;
+  --bg-blend:          multiply;
+  --blur:              0px;
+  --fg-blend:          lighten;
+  --foreground:        #000000;
+  --opacity:           0.83;
+  --spacing:           0px;
+}
+.img-wrapper {
+  background-color:    var(--base);
+  display:             flex;
+  flex:                1 1 100%;
+  height:              100%;
+  overflow:            hidden;
+  padding:             var(--spacing);
+  position:            relative;
+}
+
+.img-wrapper img {
+  filter:              grayscale(100%) contrast(1) blur(var(--blur));
+  flex:                1 0 100%;
+  height:              100%;
+  max-width:           100%;
+  mix-blend-mode:      var(--bg-blend);
+  object-fit:          cover;
+  opacity:             var(--opacity);
+  position:            relative;
+  width:               100%;
+}
+
+.img-wrapper::before {
+  background-color:    var(--foreground);
+  bottom:              0;
+  content:             '';
+  height:              100%;
+  left:                0;
+  mix-blend-mode:      var(--fg-blend);
+  position:            absolute;
+  right:               0;
+  top:                 0;
+  width:               100%;
+  z-index:             1;
+  }*/
+
+/*.img-wrapper:before{
+	background: red;
+}
+*/
+
+.colour-block {
+	height: 100%;
+	width: 100%;
+	background: red;
+	/*opacity: 0.5;*/
+}
 
 #home .section-content{
 	margin: auto;
@@ -1009,9 +1066,8 @@ object {
 #home .page_title{
 	font-size: 130px;
 	position: relative;
-	padding-top: 30vh;
+	padding: 30vh 20px 0 20px;
 	text-align: right;
-	padding-right: 20px;
 }
 
 #home{
@@ -1028,10 +1084,13 @@ object {
 	height: 100vh;
 	padding-top: 5vh;
 	max-width: 100%;
+	/*-webkit-filter: sepia(1) brightness(90%) contrast(75%) hue-rotate(170deg);*/
+	-webkit-filter: brightness(90%) contrast(75%);
 }
 
+
 .cloned-content{
-	opacity: 0;
+	/*opacity: 0;*/
 }
 
 /*--------------------------------------------------------------
@@ -1056,16 +1115,7 @@ object {
 	display: none;
 }
 
-.site-content{
-	/*Firefox */
-	-moz-transition: all 1s ease-in;
-	/*WebKit */
-	-webkit-transition: all 1s ease-in;
-	/*Opera */
-	-o-transition: all 1s ease-in;
-	/*Standard */
-	transition: all 1s ease-in;
-}
+
 
 .cloned-content{
 	position: relative;
@@ -1074,17 +1124,17 @@ object {
 	float: left;
 	width: calc(50%);
 	color: black;
-	/*height: 33%;*/
+	/*Firefox */
+	-moz-transition: all 0.3s ease-in;
+	/*WebKit */
+	-webkit-transition: all 0.3s ease-in;
+	/*Opera */
+	-o-transition: all 0.3s ease-in;
+	/*Standard */
+	transition: all 0.3s ease-in;
 }
 
 
-/*.cloned-content:before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-  box-shadow: inset 0px 0px 100px black;
-  opacity: 0.5;
-}*/
 
 .cloned-content .post{
 	padding: 0; 
@@ -1108,11 +1158,11 @@ object {
 }
 
 .text-wrapper{
-		padding: 0 10px;
-    float: right;
-    width: 50%;
-    position: relative;
-    height: 100%;
+	padding: 0 10px;
+	float: right;
+	width: 50%;
+	position: relative;
+	height: 100%;
 }
 
 .cloned-content:nth-child(3n) .text-wrapper, .cloned-content:nth-child(4n) .text-wrapper{
@@ -1228,12 +1278,14 @@ iframe{
 
 #quote1 .section-content, #quote2 .section-content, #quote3 .section-content{
 	text-align: center;
+	opacity: 0;
+
 }
 
-#quote1 .section-content{
+/*#quote1 .section-content{
 	opacity: 0;
 }
-
+*/
 
 /*--------------------------------------------------------------
 # Footer
@@ -1245,7 +1297,6 @@ iframe{
 	text-align: center;
 }
 
-
 .site-footer{
 	padding: 20px;
 	height: 30vh;
@@ -1255,14 +1306,25 @@ iframe{
 	color: whitesmoke;
 }
 
-
-
 /*--------------------------------------------------------------
 # media queries
 --------------------------------------------------------------*/
 
 
 @media only screen and (max-width: 600px) {
+
+	html{
+		font-size: 0.8rem;
+	}
+
+
+	/*.......................................
+	# navigation
+	.......................................*/
+
+	.main-navigation{
+		display: none;
+	}
 
 	#site-navigation a{
 		font-size: large;
@@ -1306,43 +1368,149 @@ iframe{
 		display: none;
 	}
 
-	#natalie .section-title {
-		display: none;
-	}
-
-	#natalie .section-content{
-		width: calc(100vw - 60px);
-		margin: auto;
-	}
-
-	#natalie .section-content{
-		padding-top: 20px;
-		margin-top: 25vh;
-	}
-
-	#work .section-content{
-		float: none;
-		width: calc(100vw - 20px);
-	}
+	/*.......................................
+	# general
+	.......................................*/	
 
 	.section-content-wrapper{
-		padding: 70px;
+		padding: 0;
 		height: 100%;
 		width: 100%;
 	}
 
-	#about .section-content{
-		width: calc(100vw - 20px);
-		margin: 0;
-		padding: 20px 30px;
-		text-align: justify;
-		float: none;
+
+	.page_title{
+		font-size:	50px;
 	}
 
-	#about .qupote-content{
-		font-size: medium;
+
+	/*.......................................
+	# quotes
+	.......................................*/
+
+
+	#quote1 .section-content, #quote2 .section-content, #quote3 .section-content {
+		opacity: 1;
+		/*font-size: 0.8rem;*/	
+		padding: 50px 10px;
 	}
 
+/*.......................................
+# home page
+.......................................*/
+
+#home .section-content {
+	padding-top: 0;
+	margin-top: 0; 
+}
+
+#home .page_title{
+	padding-top: 45vh;
+}
+
+#home img{
+	padding: 0;
+}
+
+#home .section-title {
+	display: none;
+}
+
+#home .section-content{
+	width: calc(100vw - 10px);
+	margin: auto;
+}
+
+#home .section-content{
+	padding-top: 20px;
+	margin-top: 25vh;
+}
+
+#home .page_title{
+	font-size: 50px;
+	position: relative;
+	padding-top: 30vh;
+	text-align: center;
+	padding-right: 20px;
+}
+
+#home .section-content{
+	padding: 0;
+}
+
+/*.......................................
+# about page
+.......................................*/
+
+#about .section-content{
+	width: 100vw;
+	margin: 0;
+	padding: 20px 30px;
+	text-align: justify;
+	float: none;
+}
+
+#about .qupote-content{
+	font-size: medium;
+}
+
+#about{
+	-webkit-clip-path: polygon(100% 0, 100% 94%, 50% 100%, 0 94%, 0 0);
+	clip-path: polygon(100% 0, 100% 94%, 50% 100%, 0 94%, 0 0);
+}
+
+/*.......................................
+# work page
+.......................................*/
+
+#work .background-image{
+	display: none;
+}
+
+#work .media-content{
+	opacity: 1;
+	float: none;
+}
+
+#work .section-content{
+	float: none;
+	background: whitesmoke;
+	/*width: calc(100vw - 20px);*/
+}
+
+#work .cloned-content{
+	width: 100%;
+}
+
+
+#work .image-media-wrapper {
+	width: calc(100% - 20px);
+	margin: 0 10px;
+	border-radius: 6px;
+	float: none;
+	overflow: hidden;
+	height: 50%;
+	position: absolute;
+	top: 25%;
+}
+
+#work .text-wrapper{
+	float: none;
+	width: 100%;
+}
+
+#work .entry-header{
+	top: 7%;
+}
+
+#work .entry-content{
+	top: 85%;
+}
+
+.cloned-content:last-child{
+	-webkit-clip-path: polygon(100% 0, 100% 94%, 50% 100%, 0 94%, 0 0);
+	clip-path: polygon(100% 0, 100% 94%, 50% 100%, 0 94%, 0 0);
+}
 
 }
 

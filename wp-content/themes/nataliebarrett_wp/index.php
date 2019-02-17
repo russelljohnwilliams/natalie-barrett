@@ -61,11 +61,11 @@ get_header(); ?>
 			<?php the_title(); ?>
 			
 		>
-
-<?php 
-if ( has_post_thumbnail() ) {
-the_post_thumbnail();
-}  ?>
+	<div class="img-wrapper">
+		<?php 
+			if ( has_post_thumbnail() ) {
+			the_post_thumbnail();
+		}  ?></div>
 
 			<div class="section-content-wrapper">
 
@@ -74,9 +74,11 @@ the_post_thumbnail();
 					<?php the_field('page_title'); ?>
 				</div>
 			<?php endif; ?>
+
 			<div class="section-content">
 				<?php the_content(); ?>
 			</div>
+
 		
 		</div>
 		</div>
