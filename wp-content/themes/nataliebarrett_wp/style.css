@@ -1174,7 +1174,7 @@ object {
 
 #work .entry-header{
 	font-family: 'Reenie Beanie', cursive;
-	font-size: 2.5rem;
+	font-size: 2rem;
 	top: 30%;
 }
 
@@ -1325,10 +1325,12 @@ iframe{
 	# navigation
 	.......................................*/
 
-/*
+	#site-navigation{
+		z-index: 500
+	}
 
 	.main-navigation{
-		display: none;
+		/*display: none;*/
 	}
 
 	#site-navigation a{
@@ -1363,14 +1365,12 @@ iframe{
 
 	#primary-menu{
 		padding: 0 10px;
-		margin-top: 40px;
 		display: none;
-		background-color: teal;
 	}
 
 	.menu-toggle{
-		display: none;
-	}*/
+		/*display: none;*/
+	}
 
 
 	/*.......................................
@@ -1467,6 +1467,10 @@ iframe{
 /*.......................................
 # work page
 .......................................*/
+
+#work{
+	border-top: 0;
+}
 
 #work .background-image{
 	display: none;

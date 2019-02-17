@@ -5,7 +5,7 @@ jQuery( document ).ready(function() {
   parallax(jQuery("#home .page_title"), -3);
   parallax(jQuery("#home .section-content"), -3);
   setClonedContentHeight()
-   setTimeout(function(){
+  setTimeout(function(){
     fadeInContent('#home .section-content-wrapper')
   }, 500)
 
@@ -13,10 +13,6 @@ jQuery( document ).ready(function() {
    fadeInContentOnScroll('#quote1 .section-content')
    fadeInContentOnScroll('#quote2 .section-content')
    fadeInContentOnScroll('#quote3 .section-content')
- }else{
-   rearangeNavBar()
-   addCrossToNavBar()
-   removeNavBar()
  }
 })
 
@@ -24,7 +20,7 @@ function setClonedContentHeight(){
   var clonedContent = jQuery('#work .cloned-content')
   var widthString = clonedContent.css('width')
   var width = parseInt(widthString, 10)
-    clonedContent.css({'height': ((width) + 'px')})
+  clonedContent.css({'height': ((width) + 'px')})
 }
 
 jQuery(function() {
@@ -66,11 +62,6 @@ function rearangeNavBar(){
 
 function addCrossToNavBar(){
   jQuery("#site-navigation").prepend("<div class='container'><div class='bar1'></div><div class='bar2'></div><div class='bar3'></div></div><div class='mobileHeader'>natalie barrett</div>");
-}
-
-function removeNavBar(){
-  jQuery('.main-navigation').remove();
-  jQuery('.site-branding').remove();
 }
 
 function removeHrefFromMenu(){
@@ -121,11 +112,24 @@ function parallax(object, speed){
 jQuery(function() {
   jQuery('.container').bind('click',function(event){
     jQuery('.container').toggleClass("change");
-    jQuery('#primary-menu').slideDown("slow");
+    var button = jQuery('.container')
+    if (button.attr('aria-expanded') === 'false') {
+      jQuery(this).attr( 'aria-expanded', 'true');
+      jQuery('#primary-menu').slideDown("slow");
+    } else {
+      jQuery(this).attr( 'aria-expanded', 'false');
+      jQuery('#primary-menu').slideUp("slow");
+    }  
   });
 });
 
-
+jQuery(function() {
+  jQuery('.menu-item').bind('click',function(event){
+    jQuery('.container').toggleClass("change");
+    jQuery('.container').attr( 'aria-expanded', 'false');
+    jQuery('#primary-menu').slideUp("slow");
+  });
+});
 
 
 
