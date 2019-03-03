@@ -16,7 +16,7 @@ jQuery( document ).ready(function() {
    removeNavExpandButton()
  }else{
   createMobileHeader()
-}
+ }
 })
 
 function setClonedContentHeight(){
@@ -26,66 +26,15 @@ function setClonedContentHeight(){
   clonedContent.css({'height': ((width) + 'px')})
 }
 
-// jQuery(function() {
-//   jQuery("#work .cloned-content").hover(
-//     function(){  
-//       jQuery(this).find('.media-content').css("opacity", "1");
-//     }, 
-//     function(){
-//       jQuery(this).find('.media-content').css("opacity", "0");
-//     });
-// })
-
-// jQuery(function() {
-//   jQuery("#work .cloned-content").hover(
-//     function(){  
-//       jQuery(this).find('.background-image').css({"opacity": "1", "height": '104%', "width": "104%", 'top': '-2%', 'left': '-2%'});
-//     }, 
-//     function(){
-//       jQuery(this).find('.background-image').css({"opacity": "0", "height": '100%', "width": "100%", 'top': '0', 'left': '0'});
-//     });
-// })
-
-// jQuery(function() {
-//   jQuery('.section-content article').bind('click',function(event){
-//     var showMedia = jQuery(this).find('.media-content')
-//     var showButton = jQuery(this).find('.close-button')
-//      showMedia.removeClass("hide")
-//      showMedia.addClass('show')
-//      showButton.removeClass('hide')
-//      showButton.addClass('show-button')
-//      // jQuery('article').addClass('no-click')
-//      // jQuery(this).removeClass('no-click')
-//   });
-// });
-
-// jQuery(function() {
-//   jQuery('.close-button').bind('click',function(event){
-//     console.log("close-button", this)
-//     jQuery(this).parent().find('.media-content').toggleClass("hide")
-//     jQuery(this).parent().find('.media-content').toggleClass("show")
-//     // var hideMedia = jQuery(this).parent()
-//     // var hideButton = jQuery(this)
-//     // // hideMedia.removeClass('show')
-//     // // hideMedia.addClass('hide')
-//     // // hideButton.removeClass('show-button')
-//     // hideButton.addClass('hide')
-//     // console.log("clickety click", hideButton)
-//   });
-// });
-
 jQuery(function() {
-  jQuery('.close-button').click(function(event){
-    var obj = jQuery(this).parent().find('.media-content')
-    obj.find('iframe').fadeToggle('slow')
-    jQuery(obj).fadeToggle('slow', function (){
-
-      if(obj.is(':hidden')){
-        obj.html( obj.html() );
-      }
+  jQuery("#work .cloned-content").hover(
+    function(){  
+      jQuery(this).find('.media-content').css("opacity", "1");
+    }, 
+    function(){
+      jQuery(this).find('.media-content').css("opacity", "0");
     });
-  });
-});
+})
 
 jQuery(function() {
   jQuery(".menu-item a").hover(
@@ -104,6 +53,8 @@ jQuery(function(){
     })
   }
 })
+
+
 
 function cloneContent(){
   jQuery(".post").clone().removeAttr('class').attr('class', "cloned-content content-to-clone").appendTo('#work .section-content-wrapper .section-content');

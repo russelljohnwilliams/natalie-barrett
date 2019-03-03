@@ -544,7 +544,7 @@ a:hover, a:active {
 	position: absolute;
 	top: 100%;
 	left: -999em;
-	z-index: 10;
+	z-index: 99999;
 }
 
 .main-navigation ul ul ul {
@@ -631,7 +631,7 @@ a:hover, a:active {
 
 #site-navigation{
 	position: fixed;
-	z-index: 5;
+	z-index: 5000;
 }
 
 #site-navigation a{
@@ -658,7 +658,7 @@ a:hover, a:active {
 	padding: 6px;
 	display: inline-block;
 	cursor: pointer;
-	/*z-index: 400;*/
+	z-index: 500;
 	position: absolute;
 }
 
@@ -721,7 +721,7 @@ a:hover, a:active {
 	text-decoration: none;
 	top: 5px;
 	width: auto;
-	/*z-index: 100000;*/
+	z-index: 100000;
 	/* Above WP toolbar. */
 }
 
@@ -1028,7 +1028,7 @@ object {
 #home .section-content-wrapper{
 	position: absolute;
 	top: 0;
-	/*z-index: 2;*/
+	z-index: 2;
 	opacity: 0;
 }
 
@@ -1042,7 +1042,7 @@ object {
 #home{
 	color: whitesmoke;
 	padding: 0;
-	/*z-index: 20;*/
+	z-index: 20;
 	overflow: hidden;
 	min-height: 100vh;
 	max-height: 100vh;
@@ -1124,7 +1124,7 @@ object {
 #work .entry-header, #work .entry-content{
 	position: absolute;
 	text-align: center;
-	/*z-index: 100;*/
+	z-index: 100;
 	width: calc(100% - 20px);
 }
 
@@ -1158,11 +1158,18 @@ object {
 
 #work .cloned-content .background-image{
 	position: absolute;
-	opacity: 0;
 	height: 100%;
 	width: 100%;
+	text-align: center;
+}
+
+#work .media-content{
+	position: absolute;
+	float: right;
+	width: 100%;
 	top: 0;
-	left: 0;
+	z-index: 200;
+	height: 100%;
 	/*Firefox */
 	-moz-transition: all 0.5s ease-in;
 	/*WebKit */
@@ -1171,133 +1178,29 @@ object {
 	-o-transition: all 0.5s ease-in;
 	/*Standard */
 	transition: all 0.5s ease-in;
-	display: flex;
 }
 
-#work .cloned-content .background-image:after {
-	content: '';
-	position: absolute;
-	top: 0; left: 0; bottom: 0; right: 0;
-	box-shadow: inset 0px 0px 150px black;
-}
-
-#work .media-content{
-	display: none;
+iframe{
 	width: 100%;
 	height: 100%;
-	background: rgb(0,0,0,0.6);
-	position: fixed;
-	top: 0;
-	left: 0;
+	background: black;
+	/*pointer-events:none;*/
 }
 
-#work .media-content iFrame{
-	display: none;
-	z-index: 9000
+#work .section-content{
+	overflow: hidden;
+	word-wrap: break-word;
+	text-align: center;
 }
 
-/*#work .media-content:before{
-	width: 50px;
-	height: 50px;
-	position: fixed;
-	top: 95px;
-	left: 95%;
-	z-index: 50000;
-	border: white solid 3px;
-	background: red;
-	content: "x";
-	}*/
-
-
-	#work .media-content:before:hover{
-		background: blue;
-	}
-
-	iframe{
-		width: 75%;
-		height: 75%;
-		background: black;
-		top: 20%;
-		position: relative;
-	}
-
-	#work .section-content{
-		overflow: hidden;
-		word-wrap: break-word;
-		text-align: center;
-	}
-
-	.category-audio, .category-video{
-		position: relative;
-		top: 50px;
-	}
-
-	.show{
-		/*z-index: 5000*/
-		display: block;
-		position: fixed;
-	}
-
-
-	.no-click{
-		pointer-events: none;
-	}
-
-
-/*
-	.close-button{
-		top: 15%;
-		left: 95%;
-		height: 200px;
-		width: 200px;
-		background: blue;
-	}*/
-
-.close-button{
+.category-audio, .category-video{
 	position: relative;
-	width: 30px;
-	height: 30px;
-	/*opacity: 0;*/
-	background: blue;
-	top: 0;
-	left: 0;
+	top: 50px;
 }
 
-	.hide-button{
-		position: relative;
-		width: 100%;
-		height: 100%;
-		/*opacity: 0;*/
-		background: blue;
-		top: 0;
-		left: 0;
-	}
-
-	.show-button{
-		/*z-index: 6000;*/
-		opacity: 1;
-		position: fixed;
-	}
-
-	.close-button:hover{
-	
-		background: red;
-	}
-
-	.hide{
-		/*display: none;*/
-	}
-
-	.close-button .bar1{
-		webkit-transform: rotate(-45deg) translate(-5px, 5px);
-		transform: rotate(-45deg) translate(-5px, 5px);
-	}
-
-	.close-button .bar3{
-		webkit-transform: rotate(45deg) translate(0px, 0px);
-		transform: rotate(45deg) translate(0px, 0px);
-	}
-
+.media-content{
+	opacity: 0;
+}
 
 /*--------------------------------------------------------------
 ## Sections  -  About
@@ -1332,7 +1235,7 @@ object {
 #quote1, #quote2, #quote3{
 	height: 40vh;
 	background: whitesmoke;
-	/*z-index: 5000;*/
+	z-index: 5000;
 }
 
 
@@ -1383,7 +1286,7 @@ object {
 	.......................................*/
 
 	#site-navigation{
-		z-index: 5
+		z-index: 500
 	}
 
 	.main-navigation{

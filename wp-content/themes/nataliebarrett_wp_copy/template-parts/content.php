@@ -10,11 +10,6 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> style="background-color:<?php the_field('background_colour'); ?>;">
-		<div class='close-button'><div class= 'bar1'></div><div class='bar3'></div></div>
-	
-	<div class="media-content hide">
-		<?php the_field('media_link'); ?>
-	</div>
 	<div class="text-wrapper">
 	<header class="entry-header">
 		<?php
@@ -58,7 +53,7 @@
 	</div>
 	<div class="image-media-wrapper">
 		<div class="background-image"><img src=" <?php the_field('image'); ?>" /></div>
-		
+		<div class="media-content"><?php the_field('media_link'); ?></div>
 	</div>
 	<footer class="entry-footer">
 	</footer><!-- .entry-footer -->
