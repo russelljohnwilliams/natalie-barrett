@@ -2,8 +2,7 @@ jQuery( document ).ready(function() {
   jQuery(this).scrollTop(0);
   cloneContent()
   removeHrefFromMenu()
-  parallax(jQuery("#home .page_title"), -3);
-  parallax(jQuery("#home .section-content"), -3);
+  parallax(jQuery("#home .section-content-wrapper"), -3);
   setClonedContentHeight()
   setTimeout(function(){
     fadeInContent('#home .section-content-wrapper')
@@ -16,62 +15,41 @@ jQuery( document ).ready(function() {
    removeNavExpandButton()
  }else{
   createMobileHeader()
- }
-})
-
-function setClonedContentHeight(){
-  var clonedContent = jQuery('#work .cloned-content')
-  var widthString = clonedContent.css('width')
-  var width = parseInt(widthString, 10)
-  clonedContent.css({'height': ((width) + 'px')})
 }
-
-jQuery(function() {
-  jQuery("#work .cloned-content").hover(
-    function(){  
-      jQuery(this).find('.media-content').css("opacity", "1");
-    }, 
-    function(){
-      jQuery(this).find('.media-content').css("opacity", "0");
-    });
 })
 
-jQuery(function() {
-  jQuery(".menu-item a").hover(
-    function(){  
-      jQuery(this).css("color", 'darkslategrey')
-    }, 
-    function(){
-      jQuery(this).css({"color": 'whitesmoke'})
-    });
-})
+// Function to display background image of #work article on HOVER
 
-jQuery(function(){
+jQuery(function() {
   if (jQuery(window).width() > 600) {
-    jQuery('#site-navigation').mouseover(function(){
-      jQuery('#primary-menu').fadeIn()
-    })
+    jQuery("#work .cloned-content").hover(
+      function(){  
+        jQuery(this).find('.background-image').css({"opacity": "1", "height": '104%', "width": "104%", 'top': '-2%', 'left': '-2%'});
+      }, 
+      function(){
+        jQuery(this).find('.background-image').css({"opacity": "0", "height": '100%', "width": "100%", 'top': '0', 'left': '0'});
+      });
   }
 })
 
+// Function to open up a layer with iframe media to play content, also creates close button
 
+jQuery(function() {
+  if (jQuery(window).width() > 600) {
+    jQuery('.close-button').click(function(event){
+      var obj = jQuery(this).parent().find('.media-content')
+      displayCloseButton(this)
+      obj.find('iframe').fadeToggle('slow')
+      jQuery(obj).fadeToggle('slow', function (){
+        if(obj.is(':hidden')){
+          obj.html( obj.html() );
+        }
+      });
+    });
+  }
+});
 
-function cloneContent(){
-  jQuery(".post").clone().removeAttr('class').attr('class', "cloned-content content-to-clone").appendTo('#work .section-content-wrapper .section-content');
-}
-
-function rearangeNavBar(){
-  jQuery( ".main-navigation li:nth-child(1)" ).appendTo( "#primary-menu" )  
-  jQuery( ".main-navigation li:nth-child(1)" ).appendTo( "#primary-menu" )  
-}
-
-function addCrossToNavBar(){
-  jQuery("#site-navigation").prepend("<div class='container'><div class='bar1'></div><div class='bar2'></div><div class='bar3'></div></div><div class='mobileHeader'>natalie barrett</div>");
-}
-
-function removeHrefFromMenu(){
-  jQuery('.menu-item').find("a[href='#']").removeAttr("href").css("cursor","pointer");
-}
+// Functions to create the new menu and alow it to slide to the relevant page
 
 jQuery(function() {
   jQuery('.menu-item').bind('click',function(event){
@@ -80,7 +58,37 @@ jQuery(function() {
     var targetAnchor = jQuery(hashAnchor).offset().top
     jQuery('html, body').animate({scrollTop: (targetAnchor) }, 1500);
   });
+  closeMobileHearOnLinkClick()
 });
+
+function removeHrefFromMenu(){
+  jQuery('.menu-item').find("a[href='#']").removeAttr("href").css("cursor","pointer");
+}
+
+
+// Function to set height of articles to be the same as the article width 
+
+function setClonedContentHeight(){
+  var clonedContent = jQuery('#work .cloned-content')
+  var widthString = clonedContent.css('width')
+  var width = parseInt(widthString, 10)
+  clonedContent.css({'height': ((width) + 'px')})
+}
+
+// when an article is clicked and expands, a CLOSE (x) button appears instead of being hidden
+
+function displayCloseButton(button){
+  var closeButton = jQuery(button)
+  closeButton.toggleClass('show')
+}
+
+// Clones content from top of the 'first' page into the #work section, then it removes the original content
+
+function cloneContent(){
+  jQuery(".post").clone().removeAttr('class').attr('class', "cloned-content content-to-clone").appendTo('#work .section-content-wrapper .section-content');
+  jQuery('#work article').removeClass('content-to-clone')
+  jQuery('.content-to-clone').remove()
+}
 
 function fadeInContentOnScroll(content, top){
   jQuery(window).scroll( function(){
@@ -95,8 +103,10 @@ function fadeInContentOnScroll(content, top){
 } 
 
 function fadeInContent(content, top){
-  jQuery(content).animate({'opacity':'1'},2500); 
+  jQuery(content).animate({'opacity':'1', 'margin-left': 0},2000); 
 }
+
+// creates parallax scrolling for the front page header
 
 function parallax(object, speed){
   jQuery(window).scroll(function(){
@@ -114,9 +124,13 @@ function parallax(object, speed){
   });
 };
 
+// removes nav expand button from desktop site, allows it for mobile
+
 function removeNavExpandButton(){
   jQuery('.container').remove()
 }
+
+// build the mobile header
 
 function createMobileHeader(){
   jQuery(function() {
@@ -133,6 +147,8 @@ function createMobileHeader(){
     });
   });
 
+
+
   jQuery(function() {
     jQuery('.menu-item').bind('click',function(event){
       jQuery('.container').toggleClass("change");
@@ -144,7 +160,14 @@ function createMobileHeader(){
 }
 
 
-
+function closeMobileHearOnLinkClick(){
+  jQuery(function() {
+    if (button.attr('aria-expanded') === 'true') {
+      jQuery(this).attr( 'aria-expanded', 'false');
+      jQuery('#primary-menu').slideDown("slow");
+    } 
+  });
+}
 
 
 
